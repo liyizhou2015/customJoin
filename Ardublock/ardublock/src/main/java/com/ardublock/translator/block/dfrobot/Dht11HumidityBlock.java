@@ -24,11 +24,13 @@ public class Dht11HumidityBlock extends TranslatorBlock
 		String pinNumber = translatorBlock.toCode();
 		String dht11Name = "dht11_pin_" + pinNumber;
 		
-		translator.addHeaderFile("HqcDht11.h");
-		translator.addDefinitionCommand("Dht11 " + dht11Name + "(" + pinNumber + ");\n");
-		translator.addSetupCommand(dht11Name + ".init();\n");
+		translator.addHeaderFile("DHT.h");
 		
-		String ret = dht11Name + ".getHumidity()";
+		translator.addDefinitionCommand("#define DHTTYPE DHT11\n");
+		translator.addDefinitionCommand("DHT " + dht11Name + "(" + pinNumber + ",DHTTYPE);\n");
+		translator.addSetupCommand(dht11Name + ".begin();\n");
+		
+		String ret = dht11Name + ".readHumidity()";
 		
 		return codePrefix + ret + codeSuffix;
 	}

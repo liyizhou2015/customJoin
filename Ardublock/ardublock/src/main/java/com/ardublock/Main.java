@@ -40,7 +40,7 @@ public class Main
 		openblocksFrame = new OpenblocksFrame();
 		
 		// Don't just "close" Ardublock, see if there's something to save first.
-		// Note to self: This only affects behaviour when we're run directly,
+		// Note to self: This only affects behaviour when we're run directly, 
 		// not when we're an Arduino Tool - See ArduBlockTool.java for that.
 		
 		//openblocksFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -129,10 +129,10 @@ public class OpenblocksFrame extends JFrame
 		
 		
 
-		Toolkit toolkit = Toolkit.getDefaultToolkit();// 获得窗体工具包
-        Dimension screenSize = toolkit.getScreenSize();// 获取屏幕大小
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Dimension screenSize = toolkit.getScreenSize();
      
-        int width = (int) (screenSize.width * 0.65);// 计算窗体新宽度
+        int width = (int) (screenSize.width * 0.65);
         
         GraphicsEnvironment graphicsEnvironment=GraphicsEnvironment.getLocalGraphicsEnvironment();
         Rectangle maximumWindowBounds=graphicsEnvironment.getMaximumWindowBounds();
@@ -275,7 +275,7 @@ public class OpenblocksFrame extends JFrame
 		generateButton.addMouseListener(new MouseListener()
 		{
 			public void mouseClicked(MouseEvent arg0) {
-				context.getEditor().handleConfigForAB(exportSerialName,exportBoardName);
+//				context.getEditor().handleConfigForAB(exportSerialName,exportBoardName);
 			}
 			public void mouseEntered(MouseEvent arg0) {
 				generateButton.setCursor(cursorHand);
@@ -396,7 +396,7 @@ public class OpenblocksFrame extends JFrame
         contentPane.add(label);  
         
         
-        final String items[] = {"com"};   
+        final String items[] = {"COM"};   
         
         final DefaultComboBoxModel model = new DefaultComboBoxModel(items);  
         
@@ -405,7 +405,6 @@ public class OpenblocksFrame extends JFrame
         contentPane.add(comboBox);
         
         comboBox.addPopupMenuListener(new PopupMenuListener(){
-        	 @Override
         	 public void popupMenuWillBecomeVisible(PopupMenuEvent e) {
         		 model.removeAllElements();
         		 String[] portList=context.getEditor().getSerialPortList();
@@ -448,9 +447,14 @@ public class OpenblocksFrame extends JFrame
             }  
         });
         
+        JPanel boadPortListPanel=new JPanel();
+        boadPortListPanel.add(boardListPanel);
+        boadPortListPanel.add(contentPane);
         
 		JPanel buttonsLeft = new JPanel();
 		JPanel buttonsRight = new JPanel();
+		
+		
 		
 		buttonsLeft.setLayout(new FlowLayout(FlowLayout.LEFT));
 		buttonsRight.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -462,8 +466,7 @@ public class OpenblocksFrame extends JFrame
 		buttonsLeft.add(generateButton);
 		buttonsLeft.add(serialMonitorButton);
 		
-		buttonsRight.add(boardListPanel);
-		buttonsRight.add(contentPane);
+		buttonsRight.add(boadPortListPanel);
 		buttonsRight.add(switchButton);
 		
 		Box box=Box.createHorizontalBox();

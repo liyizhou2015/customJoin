@@ -3,7 +3,6 @@
 <!-- This describes every BlockGenus, BlockDrawer, BlockFamilies in Starlogo-TNG. Note: For BlockGenus, if genus A relies on another genus B, that genus B must be specified in the xml 
 	file before genus A is specified./ We impose this requirement so that sanity checks can be made regarding the validity of a default argument when the BlockGenuses are first loaded. -->
 <BlockLangDef>
-
 	<BlockConnectorShapes>
 		<BlockConnectorShape shape-type="number" shape-number="1" />
 		<BlockConnectorShape shape-type="number-list" shape-number="2" />
@@ -11153,7 +11152,78 @@
 		</BlockGenus>
 <!-- joinin block -->
 		
+		<BlockGenus name="color_sensor_setup" kind="command" color="13 152 164" initlabel="bg.color_sensor_setup">
+			<description>
+				<text>Read analog value from pin</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="S0#">
+					<DefaultArg genus-name="pinListDigital_D6" label="D6" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="S1#">
+					<DefaultArg genus-name="pinListDigital_D5" label="D5" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="S2#">
+					<DefaultArg genus-name="pinListDigital_D4" label="D4" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="S3#">
+					<DefaultArg genus-name="pinListDigital_D3" label="D3" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="OUT#">
+					<DefaultArg genus-name="pinListDigital_D2" label="D2" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="LED#">
+					<DefaultArg genus-name="pinListDigital_D7" label="D7" />
+				</BlockConnector>
+			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/dfrobot/sen0020.png</FileLocation>
+				</Image>
+			</Images>
+		</BlockGenus>
 		
+		<BlockGenus name="color_sensor_red" kind="data" color="150 0 0" initlabel="bg.color_sensor_red">
+			<description>
+				<text>Read analog value from pin</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" />
+			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/dfrobot/sen0020.png</FileLocation>
+				</Image>
+			</Images>
+		</BlockGenus>
+		
+		<BlockGenus name="color_sensor_green" kind="data" color="0 150 0" initlabel="bg.color_sensor_green">
+			<description>
+				<text>Read analog value from pin</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" />
+			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/dfrobot/sen0020.png</FileLocation>
+				</Image>
+			</Images>
+		</BlockGenus>
+		
+		<BlockGenus name="color_sensor_blue" kind="data" color="0 0 150" initlabel="bg.color_sensor_blue">
+			<description>
+				<text>Read analog value from pin</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" />
+			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/dfrobot/sen0020.png</FileLocation>
+				</Image>
+			</Images>
+		</BlockGenus>
 		
 		<BlockGenus name="digital_input_for_var" kind="command" color="232 156 149" initlabel="bg.digital_input_for_var">
 			<description>
@@ -11167,13 +11237,9 @@
 				<BlockConnector connector-type="number" connector-kind="socket" label="#">
 					<DefaultArg genus-name="pinListDigital_D13" label="D13" />
 				</BlockConnector>
-				<!-- <BlockConnector connector-type="number" connector-kind="socket" label="bc.value">
-					<DefaultArg genus-name="number" label="0" />
-				</BlockConnector> -->
 			</BlockConnectors>
 		</BlockGenus>
 
-	
 	<BlockGenus name="analog_input_for_var" kind="command" color="232 156 149" initlabel="bg.analog_input_for_var">
 			<description>
 				<text>set integer variable</text>
@@ -11300,11 +11366,7 @@
 			<FamilyMember>LCD_command_blinkOn</FamilyMember>
 			<FamilyMember>LCD_command_blinkOff</FamilyMember>
 		</BlockFamily>
-		<BlockFamily>
-			<FamilyMember>servo_default</FamilyMember>
-		<!-- 	<FamilyMember>servo_sg90</FamilyMember>
-			<FamilyMember>servo_mg996r</FamilyMember> -->
-		</BlockFamily>
+		
 		
 		<!--****************** Pin Dropdown List Groups *************** -->
 		<BlockFamily>
@@ -11864,18 +11926,22 @@
 			<FamilyMember>Midi_AS</FamilyMember>
 			<FamilyMember>Midi_B</FamilyMember>
 		</BlockFamily>
-		
+		<BlockFamily>
+			<FamilyMember>color_sensor_red</FamilyMember>
+			<FamilyMember>color_sensor_green</FamilyMember>
+			<FamilyMember>color_sensor_blue</FamilyMember>
+		</BlockFamily>
 	</BlockFamilies>
 
 	<BlockDrawerSets>
 		<BlockDrawerSet name="factory" type="stack" location="southwest" window-per-drawer="no" drawer-draggable="no">
 			<BlockDrawer name="bd.control" type="factory" is-open="yes" button-color="255 255 0">
+				<BlockGenusMember>delay</BlockGenusMember>
+			
 				<BlockGenusMember>loop</BlockGenusMember>
 				<BlockGenusMember>program</BlockGenusMember>
 				
-				<BlockGenusMember>delay</BlockGenusMember>
 			<!-- 	<BlockGenusMember>delay_microseconds</BlockGenusMember> -->
-				<BlockGenusMember>millis</BlockGenusMember>
 				
 				<BlockGenusMember>if</BlockGenusMember>
 				<BlockGenusMember>ifelse</BlockGenusMember>
@@ -11886,6 +11952,7 @@
 				<BlockGenusMember>repeat_control</BlockGenusMember> -->
 				<BlockGenusMember>break</BlockGenusMember>
 				
+				<BlockGenusMember>millis</BlockGenusMember>
 			
 				<BlockGenusMember>subroutine</BlockGenusMember>
 				<BlockGenusMember>subroutine-ref</BlockGenusMember>
@@ -12003,7 +12070,8 @@
 			</BlockDrawer> -->
 			<BlockDrawer button-color="255 255 255" name="bd.communication" type="factory">
 			<!--<BlockGenusMember>serial_write</BlockGenusMember> -->
-				<BlockGenusMember>serial_print</BlockGenusMember>
+				<!-- <BlockGenusMember>serial_print</BlockGenusMember> -->
+				<BlockGenusMember>serial_println</BlockGenusMember>
 			<!--<BlockGenusMember>glue_sn</BlockGenusMember>
 				<BlockGenusMember>glue_sb</BlockGenusMember>
 			-->
@@ -12120,16 +12188,15 @@
 				
 			</BlockDrawer>
 			
-	 		<!-- <BlockDrawer button-color="255 102 0" name="bd.joinin" type="factory">
+	 		<BlockDrawer button-color="255 102 0" name="bd.joinin" type="factory">
 	 			<BlockGenusMember>digital_input_for_var</BlockGenusMember>
 	 			<BlockGenusMember>analog_input_for_var</BlockGenusMember>
 	 			
 				<BlockGenusMember>servo_default</BlockGenusMember>
 				<BlockGenusMember>ultrasonic_for_var</BlockGenusMember>
-				
-				
-				
-			</BlockDrawer> -->
+				<BlockGenusMember>color_sensor_setup</BlockGenusMember>
+				<BlockGenusMember>color_sensor_red</BlockGenusMember>
+			</BlockDrawer>
 			
 		<!-- 	<BlockDrawer button-color="26 97 218" name="bd.scoop">
 			    <BlockGenusMember>scoop_task</BlockGenusMember>
