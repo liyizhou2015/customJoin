@@ -5,10 +5,10 @@ import com.ardublock.translator.block.TranslatorBlock;
 import com.ardublock.translator.block.exception.SocketNullException;
 import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
-public class ColorSensorREDBlock extends TranslatorBlock
+public class ColorSensorReadBlock extends TranslatorBlock
 {
 	
-	public ColorSensorREDBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
+	public ColorSensorReadBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{
 		super(blockId, translator, codePrefix, codeSuffix, label);
 	}
@@ -16,7 +16,10 @@ public class ColorSensorREDBlock extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
-		String ret = "int( g_array[0] * g_SF[0] )";
+
+		TranslatorBlock tb = this.getRequiredTranslatorBlockAtSocket(0);
+		
+		String ret = "int( g_array[" + tb.toCode() + "] * g_SF[" + tb.toCode() + "] )";
 		
 		return codePrefix + ret + codeSuffix;
 	} 

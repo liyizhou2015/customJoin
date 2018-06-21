@@ -11152,6 +11152,24 @@
 		</BlockGenus>
 <!-- joinin block -->
 		
+		<BlockGenus name="pinListColorSensor_Red" kind="data" color="200 0 0" initlabel="bg.pinListColorSensor_Red" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug"/>
+			</BlockConnectors>		
+		</BlockGenus>
+		
+		<BlockGenus name="pinListColorSensor_Green" kind="data" color="0 200 0" initlabel="bg.pinListColorSensor_Green" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug"/>
+			</BlockConnectors>		
+		</BlockGenus>
+		
+		<BlockGenus name="pinListColorSensor_Blue" kind="data" color="0 0 200" initlabel="bg.pinListColorSensor_Blue" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug"/>
+			</BlockConnectors>		
+		</BlockGenus>
+		
 		<BlockGenus name="color_sensor_setup" kind="command" color="13 152 164" initlabel="bg.color_sensor_setup">
 			<description>
 				<text>Read analog value from pin</text>
@@ -11172,22 +11190,25 @@
 				<BlockConnector connector-type="number" connector-kind="socket" label="OUT#">
 					<DefaultArg genus-name="pinListDigital_D2" label="D2" />
 				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="LED#">
+			<!-- 	<BlockConnector connector-type="number" connector-kind="socket" label="LED#">
 					<DefaultArg genus-name="pinListDigital_D7" label="D7" />
+				</BlockConnector> -->
+			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/dfrobot/sen0020.png</FileLocation>
+				</Image>
+			</Images>
+		</BlockGenus>
+		
+		<BlockGenus name="color_sensor_read" kind="data" color="13 152 164" initlabel="bg.color_sensor_read">
+			<description>
+				<text>Read analog value from pin</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="读取">
+					<DefaultArg genus-name="pinListColorSensor_Red" label="Red" />
 				</BlockConnector>
-			</BlockConnectors>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/dfrobot/sen0020.png</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
-		
-		<BlockGenus name="color_sensor_red" kind="data" color="150 0 0" initlabel="bg.color_sensor_red">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
-			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
 			</BlockConnectors>
 			<Images>
@@ -11197,33 +11218,6 @@
 			</Images>
 		</BlockGenus>
 		
-		<BlockGenus name="color_sensor_green" kind="data" color="0 150 0" initlabel="bg.color_sensor_green">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug" />
-			</BlockConnectors>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/dfrobot/sen0020.png</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
-		
-		<BlockGenus name="color_sensor_blue" kind="data" color="0 0 150" initlabel="bg.color_sensor_blue">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug" />
-			</BlockConnectors>
-			<Images>
-				<Image>
-					<FileLocation>com/ardublock/block/dfrobot/sen0020.png</FileLocation>
-				</Image>
-			</Images>
-		</BlockGenus>
 		
 		<BlockGenus name="digital_input_for_var" kind="command" color="232 156 149" initlabel="bg.digital_input_for_var">
 			<description>
@@ -11926,10 +11920,11 @@
 			<FamilyMember>Midi_AS</FamilyMember>
 			<FamilyMember>Midi_B</FamilyMember>
 		</BlockFamily>
+		
 		<BlockFamily>
-			<FamilyMember>color_sensor_red</FamilyMember>
-			<FamilyMember>color_sensor_green</FamilyMember>
-			<FamilyMember>color_sensor_blue</FamilyMember>
+			<FamilyMember>pinListColorSensor_Red</FamilyMember>
+			<FamilyMember>pinListColorSensor_Green</FamilyMember>
+			<FamilyMember>pinListColorSensor_Blue</FamilyMember>
 		</BlockFamily>
 	</BlockFamilies>
 
@@ -12195,7 +12190,10 @@
 				<BlockGenusMember>servo_default</BlockGenusMember>
 				<BlockGenusMember>ultrasonic_for_var</BlockGenusMember>
 				<BlockGenusMember>color_sensor_setup</BlockGenusMember>
-				<BlockGenusMember>color_sensor_red</BlockGenusMember>
+				<BlockGenusMember>color_sensor_read</BlockGenusMember>
+				<BlockGenusMember>pinListColorSensor_Red</BlockGenusMember>
+				
+				
 			</BlockDrawer>
 			
 		<!-- 	<BlockDrawer button-color="26 97 218" name="bd.scoop">
