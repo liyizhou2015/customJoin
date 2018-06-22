@@ -86,7 +86,7 @@
 				</arg-description>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.do" />
+				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.loop" />
 			</BlockConnectors>
 		</BlockGenus>
 		<!-- legacy support -->
@@ -167,8 +167,8 @@
 				</arg-description>
 			</description>
 			<BlockConnectors>
-				<BlockConnector label="bc.condition" connector-kind="socket" connector-type="boolean" />
-				<BlockConnector label="bc.commands" connector-kind="socket" connector-type="cmd" />
+				<BlockConnector label="bc.test" connector-kind="socket" connector-type="boolean" />
+				<BlockConnector label="bc.then" connector-kind="socket" connector-type="cmd" />
 			</BlockConnectors>
 		</BlockGenus>
 		
@@ -212,7 +212,7 @@
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.repeat_times">
 					<DefaultArg genus-name="number" label="5" />
 				</BlockConnector>
-				<BlockConnector label="bc.commands" connector-type="cmd" connector-kind="socket" />
+				<BlockConnector label="bc.then" connector-type="cmd" connector-kind="socket" />
 			</BlockConnectors>
 		</BlockGenus>
 
@@ -2345,10 +2345,10 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" label="cm" />
-				<BlockConnector connector-type="number" connector-kind="socket" label="trigger pin">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.trig">
 					<DefaultArg genus-name="pinListDigital_D11" label="D11" />
 				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="echo pin">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.echo">
 					<DefaultArg genus-name="pinListDigital_D12" label="D12" />
 				</BlockConnector>
 			</BlockConnectors>
@@ -11274,7 +11274,27 @@
 				</Image>
 			</Images>
 		</BlockGenus>
-		
+		<BlockGenus name="digital_tube_tm1637" kind="command" color="77 191 169" initlabel="bg.digital_tube_tm1637">
+			<description>
+				<text>digital_tube_tm1637</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.CLK">
+					<DefaultArg genus-name="pinListDigital_D3" label="D3" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.DIO">
+					<DefaultArg genus-name="pinListDigital_D2" label="D2" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.content">
+					<DefaultArg genus-name="number" label="1234" />
+				</BlockConnector>
+			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/ultrasonic.png</FileLocation>
+				</Image>
+			</Images>
+		</BlockGenus>
 	</BlockGenuses>
 <!-- Start of Ardublock Standard UI layout -->
 	<BlockFamilies>
@@ -11931,11 +11951,11 @@
 	<BlockDrawerSets>
 		<BlockDrawerSet name="factory" type="stack" location="southwest" window-per-drawer="no" drawer-draggable="no">
 			<BlockDrawer name="bd.control" type="factory" is-open="yes" button-color="255 255 0">
-				<BlockGenusMember>delay</BlockGenusMember>
+				
 			
 				<BlockGenusMember>loop</BlockGenusMember>
 				<BlockGenusMember>program</BlockGenusMember>
-				
+				<BlockGenusMember>delay</BlockGenusMember>
 			<!-- 	<BlockGenusMember>delay_microseconds</BlockGenusMember> -->
 				
 				<BlockGenusMember>if</BlockGenusMember>
@@ -12150,6 +12170,9 @@
 				<BlockGenusMember>ultrasonic</BlockGenusMember>
 				<BlockGenusMember>df_dht11_temperature</BlockGenusMember>
 				<BlockGenusMember>df_dht11_humidity</BlockGenusMember>
+				<!-- <BlockGenusMember>color_sensor_setup</BlockGenusMember>
+				<BlockGenusMember>color_sensor_read</BlockGenusMember>
+				<BlockGenusMember>pinListColorSensor_Red</BlockGenusMember> -->
 			</BlockDrawer>
 			
 			<BlockDrawer button-color="205 133 63" name="bd.actuator" type="factory">
@@ -12171,30 +12194,24 @@
 	 			
 				<BlockGenusMember>df_led</BlockGenusMember>
 				<BlockGenusMember>df_led_pwm</BlockGenusMember>
+				<BlockGenusMember>digital_tube_tm1637</BlockGenusMember>
 			<!-- 	<BlockGenusMember>panda_i1</BlockGenusMember>
 				<BlockGenusMember>panda_o1</BlockGenusMember>
 				<BlockGenusMember>df_lcd_keypad</BlockGenusMember>
 				 -->
 				<!-- <BlockGenusMember>LCD_I2C_Sainsmart_20by4</BlockGenusMember> -->
 				
-				<BlockGenusMember>LCD_I2C_Sainsmart_16by2</BlockGenusMember>
+			<!-- 	<BlockGenusMember>LCD_I2C_Sainsmart_16by2</BlockGenusMember>
 				<BlockGenusMember>number-single-I2C-address</BlockGenusMember>
-				<BlockGenusMember>LCD_command_clear</BlockGenusMember>
-				
+				<BlockGenusMember>LCD_command_clear</BlockGenusMember> -->
 			</BlockDrawer>
 			
-	 		<BlockDrawer button-color="255 102 0" name="bd.joinin" type="factory">
+	 		<!-- <BlockDrawer button-color="255 102 0" name="bd.joinin" type="factory">
 	 			<BlockGenusMember>digital_input_for_var</BlockGenusMember>
 	 			<BlockGenusMember>analog_input_for_var</BlockGenusMember>
-	 			
 				<BlockGenusMember>servo_default</BlockGenusMember>
 				<BlockGenusMember>ultrasonic_for_var</BlockGenusMember>
-				<BlockGenusMember>color_sensor_setup</BlockGenusMember>
-				<BlockGenusMember>color_sensor_read</BlockGenusMember>
-				<BlockGenusMember>pinListColorSensor_Red</BlockGenusMember>
-				
-				
-			</BlockDrawer>
+			</BlockDrawer> -->
 			
 		<!-- 	<BlockDrawer button-color="26 97 218" name="bd.scoop">
 			    <BlockGenusMember>scoop_task</BlockGenusMember>

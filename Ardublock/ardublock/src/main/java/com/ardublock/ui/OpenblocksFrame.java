@@ -275,7 +275,7 @@ public class OpenblocksFrame extends JFrame
 		generateButton.addMouseListener(new MouseListener()
 		{
 			public void mouseClicked(MouseEvent arg0) {
-//				context.getEditor().handleConfigForAB(exportSerialName,exportBoardName);
+				context.getEditor().handleConfigForAB(exportSerialName,exportBoardName);
 			}
 			public void mouseEntered(MouseEvent arg0) {
 				generateButton.setCursor(cursorHand);
@@ -355,30 +355,25 @@ public class OpenblocksFrame extends JFrame
 		switchButton.setBackground(Color.LIGHT_GRAY);
 		switchButton.setPreferredSize( new Dimension(52, 52));
 		switchButton.setOpaque(false);
-//		switchButton.setToolTipText(uiMessageBundle.getString("ardublock.ui.upload"));
-		switchButton.setToolTipText("switch");
+		switchButton.setToolTipText(uiMessageBundle.getString("ardublock.ui.switch"));
 		switchButton.setHorizontalTextPosition(SwingConstants.CENTER);
-//		switchButton.addActionListener(new SwitchButtonListener(this));
-		
 		switchButton.addMouseListener(new MouseListener()
 		{
 			public void mouseClicked(MouseEvent arg0) {
 				switchButton.setCursor(cursorWait);
 				switchArduBlockInteface();
 				
-				
 				if(theInterfaceVer == 0){
 					switchButton.setIcon(new ImageIcon(this.getClass().getResource("/com/ardublock/icons/basicVersion.png")));
 				}else{
 					switchButton.setIcon(new ImageIcon(this.getClass().getResource("/com/ardublock/icons/advancedVersion.png")));
 				}
-
 				switchButton.setCursor(cursorDefault);
 			}
 			public void mouseEntered(MouseEvent arg0) {
 				switchButton.setCursor(cursorHand);
 				switchButton.setContentAreaFilled(true); 
-//				buttonTooltip.setText(uiMessageBundle.getString("ardublock.ui.upload"));
+				buttonTooltip.setText(uiMessageBundle.getString("ardublock.ui.switch"));
 			}
 			public void mouseExited(MouseEvent arg0) {
 				switchButton.setContentAreaFilled(false);
@@ -396,7 +391,7 @@ public class OpenblocksFrame extends JFrame
         contentPane.add(label);  
         
         
-        final String items[] = {"COM"};   
+        final String items[] = {" "};   
         
         final DefaultComboBoxModel model = new DefaultComboBoxModel(items);  
         
