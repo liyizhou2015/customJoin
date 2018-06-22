@@ -93,7 +93,7 @@ public class Editor extends JFrame implements RunnerListener {
   }
   
   public void handleConfigForAB(String serialPortName,String boardName) {
-    System.out.println(serialPortName+" : "+boardName);
+//    System.out.println(serialPortName+" : "+boardName);
     selectSerialPort(serialPortName);
     base.handleSelectBoard(boardName);
   }
