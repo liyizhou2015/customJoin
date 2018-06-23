@@ -18,7 +18,7 @@ public class LCD_command_lightOff_Block extends TranslatorBlock {
 		
 		TranslatorBlock tb = this.getRequiredTranslatorBlockAtSocket(0);
 		String I2C_addr = tb.toCode();
-		String ret = "lcd_I2C_" + I2C_addr + ".setBacklight(LOW);\n";
+		String ret = "lcd_I2C_0x" + I2C_addr + ".setBacklight(LOW);\n";
 		return ret;
 	}
 	

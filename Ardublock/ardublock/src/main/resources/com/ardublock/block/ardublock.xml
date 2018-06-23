@@ -2404,7 +2404,7 @@
 			</BlockConnectors>
 			<Images>
 				<Image>
-					<FileLocation>com/ardublock/block/LCD20by4.png</FileLocation>
+					<FileLocation>com/ardublock/block/LCD16by2.png</FileLocation>
 				</Image>
 			</Images>
 		</BlockGenus>
@@ -2445,7 +2445,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 		
-		<BlockGenus name="LCD_command_home" kind="command" color="205 133 63" label-prefix="LCD::  " initlabel="bg.LCD_command_home">
+		<BlockGenus name="LCD_command_home" kind="command" color="152 29 155" label-prefix="LCD::  " initlabel="bg.LCD_command_home">
 			<description>
 				<text>Home LCD</text>
 			</description>
@@ -2456,7 +2456,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="LCD_command_lightOn" kind="command" color="205 133 63" label-prefix="LCD::  " initlabel="bg.LCD_command_lightOn">
+		<BlockGenus name="LCD_command_lightOn" kind="command" color="152 29 155" label-prefix="LCD::  " initlabel="bg.LCD_command_lightOn">
 			<description>
 				<text>Home LCD</text>
 			</description>
@@ -2478,7 +2478,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 		
-		<BlockGenus name="LCD_command_cursorOn" kind="command" color="205 133 63" label-prefix="LCD::  " initlabel="bg.LCD_command_cursorOn">
+		<BlockGenus name="LCD_command_cursorOn" kind="command" color="152 29 155" label-prefix="LCD::  " initlabel="bg.LCD_command_cursorOn">
 			<description>
 				<text>Home LCD</text>
 			</description>
@@ -2489,7 +2489,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="LCD_command_cursorOff" kind="command" color="205 133 63" label-prefix="LCD::  " initlabel="bg.LCD_command_cursorOff">
+		<BlockGenus name="LCD_command_cursorOff" kind="command" color="152 29 155" label-prefix="LCD::  " initlabel="bg.LCD_command_cursorOff">
 			<description>
 				<text>Home LCD</text>
 			</description>
@@ -2500,7 +2500,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 		
-		<BlockGenus name="LCD_command_blinkOn" kind="command" color="205 133 63" label-prefix="LCD::  " initlabel="bg.LCD_command_blinkOn">
+		<BlockGenus name="LCD_command_blinkOn" kind="command" color="152 29 155" label-prefix="LCD::  " initlabel="bg.LCD_command_blinkOn">
 			<description>
 				<text>Home LCD</text>
 			</description>
@@ -2511,7 +2511,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="LCD_command_blinkOff" kind="command" color="205 133 63" label-prefix="LCD::  " initlabel="bg.LCD_command_blinkOff">
+		<BlockGenus name="LCD_command_blinkOff" kind="command" color="152 29 155" label-prefix="LCD::  " initlabel="bg.LCD_command_blinkOff">
 			<description>
 				<text>Home LCD</text>
 			</description>
@@ -4223,12 +4223,12 @@
 				<text>DFRobot LED Module</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="#">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListDigital_D13" label="D13" />
 				</BlockConnector>
-
+				
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.status">
-					<DefaultArg genus-name="number" label="1" />
+					<DefaultArg genus-name="pinListSwitchOff" label="OFF" />
 				</BlockConnector>
 			</BlockConnectors>
 			<Images>
@@ -4307,7 +4307,7 @@
 					<DefaultArg genus-name="pinListDigital_D13" label="D13" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.status">
-					<DefaultArg genus-name="number" label="1" />
+					<DefaultArg genus-name="pinListSwitchOff" label="OFF" />
 				</BlockConnector>
 			</BlockConnectors>
 			<Images>
@@ -11275,7 +11275,7 @@
 			</Images>
 		</BlockGenus>
 		
-		<BlockGenus name="digital_tube_tm1637" kind="command" color="77 191 169" initlabel="bg.digital_tube_tm1637">
+		<BlockGenus name="digital_tube_tm1637" kind="command" color="152 29 155" initlabel="bg.digital_tube_tm1637">
 			<description>
 				<text>digital_tube_tm1637</text>
 			</description>
@@ -11286,17 +11286,40 @@
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.DIO">
 					<DefaultArg genus-name="pinListDigital_D2" label="D2" />
 				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.colon">
+					<DefaultArg genus-name="pinListSwitchOff" label="OFF" />
+				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.content">
 					<DefaultArg genus-name="number" label="1234" />
 				</BlockConnector>
 			</BlockConnectors>
 			<Images>
 				<Image>
-					<FileLocation>com/ardublock/block/ultrasonic.png</FileLocation>
+					<FileLocation>com/ardublock/block/dfrobot/mon003.png</FileLocation>
 				</Image>
 			</Images>
 		</BlockGenus>
 		
+		
+		<BlockGenus name="pinListSwitchOn" kind="data" color="0 200 0" initlabel="bg.pinListSwitchOn" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug"/>
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="pinListSwitchOff" kind="data" color="200 0 0" initlabel="bg.pinListSwitchOff" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug"/>
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="iic_addr_scan" kind="command" color="152 29 155" initlabel="bg.iic_addr_scan">
+			<description>
+				<text>iic addr scan</text>
+			</description>
+			<BlockConnectors>
+			</BlockConnectors>
+		</BlockGenus>
 	</BlockGenuses>
 <!-- Start of Ardublock Standard UI layout -->
 	<BlockFamilies>
@@ -11369,7 +11392,7 @@
 			<FamilyMember>digital-off</FamilyMember>
 		</BlockFamily>
 		<BlockFamily>
-			<FamilyMember>LCD_I2C_Sainsmart_20by4</FamilyMember>
+			<!-- <FamilyMember>LCD_I2C_Sainsmart_20by4</FamilyMember> -->
 			<FamilyMember>LCD_I2C_Sainsmart_16by2</FamilyMember>
 		</BlockFamily>
 		<BlockFamily>
@@ -11948,6 +11971,11 @@
 			<FamilyMember>pinListColorSensor_Green</FamilyMember>
 			<FamilyMember>pinListColorSensor_Blue</FamilyMember>
 		</BlockFamily>
+		
+		<BlockFamily>
+			<FamilyMember>pinListSwitchOn</FamilyMember>
+			<FamilyMember>pinListSwitchOff</FamilyMember>
+		</BlockFamily>
 	</BlockFamilies>
 
 	<BlockDrawerSets>
@@ -12199,15 +12227,16 @@
 	 			
 				<BlockGenusMember>df_led</BlockGenusMember>
 				<BlockGenusMember>df_led_pwm</BlockGenusMember>
-				<BlockGenusMember>digital_tube_tm1637</BlockGenusMember>
+				<!-- <BlockGenusMember>digital_tube_tm1637</BlockGenusMember> -->
 				
+			<!-- 	<BlockGenusMember>iic_addr_scan</BlockGenusMember> -->
 			<!-- 	<BlockGenusMember>panda_i1</BlockGenusMember>
 				<BlockGenusMember>panda_o1</BlockGenusMember>
 				<BlockGenusMember>df_lcd_keypad</BlockGenusMember>
 				 -->
 				<!-- <BlockGenusMember>LCD_I2C_Sainsmart_20by4</BlockGenusMember> -->
 				
-			<!-- 	<BlockGenusMember>LCD_I2C_Sainsmart_16by2</BlockGenusMember>
+				<!-- <BlockGenusMember>LCD_I2C_Sainsmart_16by2</BlockGenusMember>
 				<BlockGenusMember>number-single-I2C-address</BlockGenusMember>
 				<BlockGenusMember>LCD_command_clear</BlockGenusMember> -->
 			</BlockDrawer>

@@ -18,7 +18,7 @@ public class LCD_command_blinkOff_Block extends TranslatorBlock {
 		
 		TranslatorBlock tb = this.getRequiredTranslatorBlockAtSocket(0);
 		String I2C_addr = tb.toCode();
-		String ret = "lcd_I2C_" + I2C_addr + ".noBlink();\n";
+		String ret = "lcd_I2C_0x" + I2C_addr + ".noBlink();\n";
 		return ret;
 	}
 	

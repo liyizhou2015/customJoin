@@ -29,8 +29,7 @@ public class Tm1637DisplayBlock extends TranslatorBlock
 		
 		String TM1637CONFIG =
 				"TM1637Display tm1637("+CLK+", "+DIO+");\n"
-				+ "uint8_t myTM1637Array[4];\n"
-				+ "int pointTM1637=0x80;\n";
+				+ "uint8_t myTM1637Array[4];\n";
 		String TM1637SETUP=
 				"tm1637.setBrightness(2,true);\n";
 		
@@ -39,9 +38,17 @@ public class Tm1637DisplayBlock extends TranslatorBlock
 		translator.addSetupCommand(TM1637SETUP);
 		
 		String ret="";
-//		ret += "int ";
+
+		tb = this.getRequiredTranslatorBlockAtSocket(3);
+		
+		ret += "tm1637.showNumberDecEx(" + tb.toCode() + ",";
+		
 		tb = this.getRequiredTranslatorBlockAtSocket(2);
-		ret += "tm1637.showNumberDecEx(" + tb.toCode() + ",pointTM1637,false,4,0);\n";
+		
+		ret += ((Integer.parseInt(tb.toCode()) == 1) ? "0x40" : "0x80" );
+		
+		ret += ",false,4,0);\n";
+		
 		return ret;
 	}
 
