@@ -12227,6 +12227,8 @@
 	 			
 				<BlockGenusMember>df_led</BlockGenusMember>
 				<BlockGenusMember>df_led_pwm</BlockGenusMember>
+				
+				<BlockGenusMember>color_sensor_read</BlockGenusMember>
 				<!-- <BlockGenusMember>digital_tube_tm1637</BlockGenusMember> -->
 				
 			<!-- 	<BlockGenusMember>iic_addr_scan</BlockGenusMember> -->

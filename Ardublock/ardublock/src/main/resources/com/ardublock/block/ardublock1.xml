@@ -11203,7 +11203,7 @@
 		
 		<BlockGenus name="color_sensor_read" kind="data" color="13 152 164" initlabel="bg.color_sensor_read">
 			<description>
-				<text>Read analog value from pin</text>
+				<text>Read value from sensor</text>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="读取">
