@@ -387,7 +387,7 @@ public class OpenblocksFrame extends JFrame
 		//serial list
         JPanel contentPane=new JPanel(); 
         contentPane.setLayout(new FlowLayout(FlowLayout.CENTER,5,5));  
-        JLabel label=new JLabel("serial:");  
+        JLabel label=new JLabel(uiMessageBundle.getString("ardublock.ui.serial"));  
         contentPane.add(label);  
         
         
@@ -425,7 +425,7 @@ public class OpenblocksFrame extends JFrame
         //board list
         JPanel boardListPanel=new JPanel(); 
         boardListPanel.setLayout(new FlowLayout(FlowLayout.CENTER,5,5));  
-        JLabel boardListLabel=new JLabel("board:");  
+        JLabel boardListLabel=new JLabel(uiMessageBundle.getString("ardublock.ui.board"));  
         boardListPanel.add(boardListLabel);  
         final String boardListItems[] = {"uno","pro","nano","leonardo"};   
         final DefaultComboBoxModel boardListModel = new DefaultComboBoxModel(boardListItems);  

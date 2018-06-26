@@ -28,12 +28,14 @@ public class NeoPixel7LED extends TranslatorBlock
 		String instanceName = "strip_" + Math.random()*100;
 		translator.addDefinitionCommand("Adafruit_NeoPixel " + instanceName + " = Adafruit_NeoPixel( MAX_LED, PIN, NEO_RGB + NEO_KHZ800 );");
 		
-		String ret = "";
+		
 		tb = this.getRequiredTranslatorBlockAtSocket(2);//brightness
 		int x =Integer.parseInt(tb.toCode());
 		x = x < 0 ? 0 : x;
 		x = x > 255 ? 255 : x;
-		ret = instanceName + ".setBrightness(" + x + ");\n";
+		translator.addSetupCommand(instanceName + ".setBrightness(" + x + ");\n");
+		translator.addSetupCommand("strip.begin();\n");
+		translator.addSetupCommand("strip.show();\n");
 		
 		tb = this.getRequiredTranslatorBlockAtSocket(3);
 		String green = tb.toCode();
@@ -41,7 +43,9 @@ public class NeoPixel7LED extends TranslatorBlock
 		String red = tb.toCode();
 		tb = this.getRequiredTranslatorBlockAtSocket(5);
 		String blue = tb.toCode();
-		ret += ;
+		
+		String ret = "";
+//		ret += ;
 		
 		return codePrefix + ret + codeSuffix;
 	} 

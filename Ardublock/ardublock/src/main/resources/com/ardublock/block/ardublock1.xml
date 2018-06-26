@@ -254,7 +254,7 @@
 		</BlockGenus>
 		<BlockGenus name="subroutine_var" kind="command" color="200 220 0" initlabel="bg.subroutine_var" is-starter="yes" is-terminator="yes" label-unique="yes" editable-label="yes">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.param">
 					<DefaultArg genus-name="ref_var" label="variable_transmise" />
 				</BlockConnector>
 				<BlockConnector label="bc.commands" connector-type="cmd" connector-kind="socket" />
@@ -2228,8 +2228,8 @@
 				<BlockConnector connector-type="poly" connector-kind="socket" label="bc.variable">
 					<DefaultArg genus-name="variable_poly" label="Char" />
 				</BlockConnector>
-				<BlockConnector connector-type="poly" connector-kind="socket" label="char">
-					<DefaultArg genus-name="char" label="A" />
+				<BlockConnector connector-type="poly" connector-kind="socket" label="bc.value">
+					<DefaultArg genus-name="char" label="a" />
 				</BlockConnector>
 
 			</BlockConnectors>
@@ -2575,9 +2575,9 @@
 				<BlockConnector connector-type="string" connector-kind="socket" label="bc.message">
 					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
-				<BlockConnector connector-type="boolean" connector-kind="socket" label="bc.ln">
+				<!-- <BlockConnector connector-type="boolean" connector-kind="socket" label="bc.ln">
 					<DefaultArg genus-name="true" label="true" />
-				</BlockConnector>
+				</BlockConnector> -->
 			</BlockConnectors>
 		</BlockGenus>
 
@@ -11203,10 +11203,10 @@
 		
 		<BlockGenus name="color_sensor_read" kind="data" color="13 152 164" initlabel="bg.color_sensor_read">
 			<description>
-				<text>Read value from sensor</text>
+				<text>Read analog value from pin</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="读取">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.color">
 					<DefaultArg genus-name="pinListColorSensor_Red" label="Red" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="plug" />
@@ -12001,12 +12001,9 @@
 			
 				<BlockGenusMember>subroutine</BlockGenusMember>
 				<BlockGenusMember>subroutine-ref</BlockGenusMember>
-				<!-- <BlockGenusMember>subroutine_var</BlockGenusMember>
+				<BlockGenusMember>subroutine_var</BlockGenusMember>
 				<BlockGenusMember>subroutine-ref_var</BlockGenusMember>
-				<BlockGenusMember>ref_var</BlockGenusMember> -->
-
-				
-				
+				<BlockGenusMember>ref_var</BlockGenusMember>
 			</BlockDrawer>
 		<!-- 	
 			<BlockDrawer name="bd.delay" type="factory" is-open="yes" button-color="229 203 229">
@@ -12039,16 +12036,17 @@
 			<!-- 	<BlockGenusMember>not_equal</BlockGenusMember> -->
 			<!-- 	<BlockGenusMember>equal_digital</BlockGenusMember> -->
 		<!-- 		<BlockGenusMember>not_equal_digital</BlockGenusMember> -->
-			<!-- 	<BlockGenusMember>equal_poly</BlockGenusMember>
-				<BlockGenusMember>not_equal_poly</BlockGenusMember>
+				<!-- <BlockGenusMember>equal_poly</BlockGenusMember> -->
+				<!--<BlockGenusMember>not_equal_poly</BlockGenusMember>-->
 				<BlockGenusMember>equal_string</BlockGenusMember>
-				<BlockGenusMember>not_equal_string</BlockGenusMember> -->
+				<!-- <BlockGenusMember>not_equal_string</BlockGenusMember> -->
+				
+				<BlockGenusMember>string_empty</BlockGenusMember>
+				
 				<BlockGenusMember>and</BlockGenusMember>
 				<BlockGenusMember>or</BlockGenusMember>
 				<BlockGenusMember>not</BlockGenusMember>
-				<!-- <BlockGenusMember>string_equal</BlockGenusMember>
-				<BlockGenusMember>string_empty</BlockGenusMember>
-				<BlockGenusMember>string_toInt</BlockGenusMember> -->
+				<!-- <BlockGenusMember>string_toInt</BlockGenusMember> -->
 			</BlockDrawer>
 			<BlockDrawer button-color="114 147 71" name="bd.operators" type="factory">
 				<BlockGenusMember>addition</BlockGenusMember>
@@ -12056,12 +12054,12 @@
 				<BlockGenusMember>multiplication</BlockGenusMember>
 				<BlockGenusMember>division</BlockGenusMember>
 				<BlockGenusMember>modulo</BlockGenusMember>
-				<!--<BlockGenusMember>abs</BlockGenusMember>
+				<BlockGenusMember>abs</BlockGenusMember>
 				<BlockGenusMember>pow</BlockGenusMember>
 				<BlockGenusMember>sqrt</BlockGenusMember>
 				<BlockGenusMember>sin</BlockGenusMember>
 				<BlockGenusMember>cos</BlockGenusMember>
-				<BlockGenusMember>tan</BlockGenusMember> -->
+				<BlockGenusMember>tan</BlockGenusMember>
 				<BlockGenusMember>random_range</BlockGenusMember>
 				<BlockGenusMember>map</BlockGenusMember>
 				<!-- <BlockGenusMember>toint</BlockGenusMember> -->
@@ -12072,7 +12070,7 @@
 				<BlockGenusMember>setter_variable_number</BlockGenusMember>
 				<BlockGenusMember>variable_number</BlockGenusMember>
 				<BlockGenusMember>number</BlockGenusMember>
-				<!-- <BlockGenusMember>setter_variable_number_unsigned_long</BlockGenusMember>
+			<!-- 	<BlockGenusMember>setter_variable_number_unsigned_long</BlockGenusMember>
 				<BlockGenusMember>variable_number_unsigned_long</BlockGenusMember> -->
 			<!-- 	<BlockGenusMember>setter_variable_digital</BlockGenusMember>
 				<BlockGenusMember>variable_digital</BlockGenusMember>
@@ -12080,13 +12078,10 @@
 				<BlockGenusMember>digital-high</BlockGenusMember> -->
 			<!-- 	<BlockGenusMember>true</BlockGenusMember>
 				<BlockGenusMember>false</BlockGenusMember> -->
-			<!-- 	<BlockGenusMember>setter_variable_number_double</BlockGenusMember>
+				<BlockGenusMember>setter_variable_number_double</BlockGenusMember>
 				<BlockGenusMember>variable_number_double</BlockGenusMember>
-				<BlockGenusMember>number_double</BlockGenusMember> -->
-			<!-- 	<BlockGenusMember>pinListDigital_D0</BlockGenusMember>
-				<BlockGenusMember>pinListAnalog_A0</BlockGenusMember>
-				<BlockGenusMember>pinListAnalogWrite_D3</BlockGenusMember> -->
-				<!-- <BlockGenusMember>setter_variable_char</BlockGenusMember>
+				<BlockGenusMember>number_double</BlockGenusMember>
+				<BlockGenusMember>setter_variable_char</BlockGenusMember>
 				<BlockGenusMember>variable_poly</BlockGenusMember>
 				<BlockGenusMember>char</BlockGenusMember>
 				<BlockGenusMember>setter_variable_String</BlockGenusMember>
@@ -12094,27 +12089,26 @@
 				<BlockGenusMember>message</BlockGenusMember>
 				<BlockGenusMember>create_variable_vector</BlockGenusMember>
 				<BlockGenusMember>variable_vector</BlockGenusMember>
-				<BlockGenusMember>setter_variable_vector</BlockGenusMember> -->
+				<BlockGenusMember>setter_variable_vector</BlockGenusMember>
 			</BlockDrawer>
 			<BlockDrawer button-color="255 255 255" name="bd.communication" type="factory">
-			<!--<BlockGenusMember>serial_write</BlockGenusMember> -->
-				<!-- <BlockGenusMember>serial_print</BlockGenusMember> -->
+				<BlockGenusMember>serial_write</BlockGenusMember>
+				<BlockGenusMember>serial_print</BlockGenusMember>
 				<BlockGenusMember>serial_println</BlockGenusMember>
 			<!--<BlockGenusMember>glue_sn</BlockGenusMember>
 				<BlockGenusMember>glue_sb</BlockGenusMember>
 			-->
 				<BlockGenusMember>glue_poly</BlockGenusMember>
-			<!--
-				<BlockGenusMember>ir_setport</BlockGenusMember>
-				<BlockGenusMember>ir_getcode</BlockGenusMember>
-				<BlockGenusMember>wire_write</BlockGenusMember>
+				<!-- <BlockGenusMember>ir_setport</BlockGenusMember>
+				<BlockGenusMember>ir_getcode</BlockGenusMember> -->
+				<!-- <BlockGenusMember>wire_write</BlockGenusMember>
 				<BlockGenusMember>wire_read</BlockGenusMember>
-				<BlockGenusMember>wire_isread</BlockGenusMember>
+				<BlockGenusMember>wire_isread</BlockGenusMember> -->
 				<BlockGenusMember>serial_available</BlockGenusMember>
-				<BlockGenusMember>serial_available2</BlockGenusMember>
+				<!-- <BlockGenusMember>serial_available2</BlockGenusMember> -->
 				<BlockGenusMember>serial_read</BlockGenusMember>
-				<BlockGenusMember>serial_parseInt</BlockGenusMember> -->
-				<!-- <BlockGenusMember>DuinoEDU_Guino_Read</BlockGenusMember>
+				<BlockGenusMember>serial_parseInt</BlockGenusMember>
+				 <!-- <BlockGenusMember>DuinoEDU_Guino_Read</BlockGenusMember>
 				<BlockGenusMember>DuinoEDU_Guino_Slider</BlockGenusMember>
 				<BlockGenusMember>DuinoEDU_Guino_switch</BlockGenusMember>
 				<BlockGenusMember>DuinoEDU_Guino_pause</BlockGenusMember>
@@ -12122,16 +12116,45 @@
 				<BlockGenusMember>DuinoEDU_Guino_column</BlockGenusMember>
 				<BlockGenusMember>DuinoEDU_hand_positionX</BlockGenusMember>
 				<BlockGenusMember>DuinoEDU_handRotX</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_angle_pouce</BlockGenusMember>
-				<BlockGenusMember>Serialplus_send_variable_number</BlockGenusMember>
+				<BlockGenusMember>DuinoEDU_angle_pouce</BlockGenusMember> -->
+				<!-- <BlockGenusMember>Serialplus_send_variable_number</BlockGenusMember>
 				<BlockGenusMember>Serialplus_send_variable_digital</BlockGenusMember>
-				<BlockGenusMember>Serialplus_receive_number</BlockGenusMember> -->
-				<!-- <BlockGenusMember>Serialplus_receive_digital</BlockGenusMember> -->
+				<BlockGenusMember>Serialplus_receive_number</BlockGenusMember>
+				<BlockGenusMember>Serialplus_receive_digital</BlockGenusMember>  -->
 			</BlockDrawer>
-			
+			<BlockDrawer button-color="50 100 100" name="bd.storage" type="factory">
+				<BlockGenusMember>eeprom_read_int</BlockGenusMember>
+				<BlockGenusMember>eeprom_write_int</BlockGenusMember>
+				<!-- <BlockGenusMember>eeprom_read_long</BlockGenusMember>
+				<BlockGenusMember>eeprom_write_long</BlockGenusMember> -->
+				<!-- <BlockGenusMember>eeprom_read</BlockGenusMember>
+				<BlockGenusMember>eeprom_write</BlockGenusMember> -->
+				<!-- <BlockGenusMember>sd_write2</BlockGenusMember>
+				<BlockGenusMember>MaSD_Connect</BlockGenusMember>
+				<BlockGenusMember>MaSD_file</BlockGenusMember>
+				<BlockGenusMember>MaSD_Write</BlockGenusMember>
+				<BlockGenusMember>MaSD_NewLine</BlockGenusMember>
+				<BlockGenusMember>MaSD_separator</BlockGenusMember> -->
+			<!-- 	<BlockGenusMember>sd_write</BlockGenusMember>
+				<BlockGenusMember>sd_write_number</BlockGenusMember>
+				<BlockGenusMember>sd_write_number_int</BlockGenusMember> -->
+			</BlockDrawer>
+			<!-- <BlockDrawer button-color="169 148 212" name="bd.network" type="factory">
+				<BlockGenusMember>bleshield</BlockGenusMember>
+				<BlockGenusMember>bleshield_available</BlockGenusMember>
+				<BlockGenusMember>bleshield_read_poly</BlockGenusMember>
+				<BlockGenusMember>bleshield_compare</BlockGenusMember>
+			</BlockDrawer>
+			-->
+			<BlockDrawer button-color="0 200 0" name="bd.especial" type="factory">
+				<!-- <BlockGenusMember>code_head</BlockGenusMember>
+				<BlockGenusMember>code_setup</BlockGenusMember>
+				<BlockGenusMember>code_loop</BlockGenusMember> -->
+				<BlockGenusMember>DuinoEDU_code_head</BlockGenusMember>
+				<BlockGenusMember>DuinoEDU_code_setup</BlockGenusMember>
+				<BlockGenusMember>DuinoEDU_code_loop</BlockGenusMember>
+			</BlockDrawer>
 			<BlockDrawer button-color="13 152 164" name="bd.sensor" type="factory">
-	 			
-				
 				<BlockGenusMember>df_digital_push_button</BlockGenusMember>
 				<BlockGenusMember>df_digital_magnetic_sensor</BlockGenusMember>
 				<BlockGenusMember>df_digital_viberation_sensor</BlockGenusMember>
@@ -12186,9 +12209,9 @@
 				<BlockGenusMember>ultrasonic</BlockGenusMember>
 				<BlockGenusMember>df_dht11_temperature</BlockGenusMember>
 				<BlockGenusMember>df_dht11_humidity</BlockGenusMember>
-				<!-- <BlockGenusMember>color_sensor_setup</BlockGenusMember>
+				<!-- <BlockGenusMember>color_sensor_setup</BlockGenusMember>-->
 				<BlockGenusMember>color_sensor_read</BlockGenusMember>
-				<BlockGenusMember>pinListColorSensor_Red</BlockGenusMember> -->
+				<BlockGenusMember>pinListColorSensor_Red</BlockGenusMember>
 			</BlockDrawer>
 			
 			<BlockDrawer button-color="205 133 63" name="bd.actuator" type="factory">
@@ -12241,37 +12264,7 @@
 				<BlockGenusMember>scoop_event_rising</BlockGenusMember>
 				<BlockGenusMember>scoop_event_change</BlockGenusMember>
 			</BlockDrawer> -->
-			<!-- <BlockDrawer button-color="50 100 100" name="bd.storage" type="factory">
-				<BlockGenusMember>eeprom_read_int</BlockGenusMember>
-				<BlockGenusMember>eeprom_write_int</BlockGenusMember>
-				<BlockGenusMember>eeprom_read_long</BlockGenusMember>
-				<BlockGenusMember>eeprom_write_long</BlockGenusMember>
-				<BlockGenusMember>eeprom_read</BlockGenusMember>
-				<BlockGenusMember>eeprom_write</BlockGenusMember> -->
-				<!-- <BlockGenusMember>sd_write2</BlockGenusMember>
-				<BlockGenusMember>MaSD_Connect</BlockGenusMember>
-				<BlockGenusMember>MaSD_file</BlockGenusMember>
-				<BlockGenusMember>MaSD_Write</BlockGenusMember>
-				<BlockGenusMember>MaSD_NewLine</BlockGenusMember>
-				<BlockGenusMember>MaSD_separator</BlockGenusMember> -->
-				<!-- <BlockGenusMember>sd_write</BlockGenusMember> -->
-				<!-- <BlockGenusMember>sd_write_number</BlockGenusMember> -->
-				<!-- <BlockGenusMember>sd_write_number_int</BlockGenusMember> -->
-			<!-- </BlockDrawer> -->
-			<!-- <BlockDrawer button-color="169 148 212" name="bd.network" type="factory">
-				<BlockGenusMember>bleshield</BlockGenusMember>
-				<BlockGenusMember>bleshield_available</BlockGenusMember>
-				<BlockGenusMember>bleshield_read_poly</BlockGenusMember>
-				<BlockGenusMember>bleshield_compare</BlockGenusMember>
-			</BlockDrawer>
-			<BlockDrawer button-color="120 120 120" name="bd.especial" type="factory">
-				<BlockGenusMember>code_head</BlockGenusMember>
-				<BlockGenusMember>code_setup</BlockGenusMember>
-				<BlockGenusMember>code_loop</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_code_head</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_code_setup</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_code_loop</BlockGenusMember>
-			</BlockDrawer> -->
+			
 			<!-- <BlockDrawer button-color="13 152 164" name="bd.tinkerkit" type="factory">
 				<BlockGenusMember>Tinker_LED</BlockGenusMember>
 				<BlockGenusMember>Tinker_LED_pwm</BlockGenusMember>

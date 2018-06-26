@@ -254,7 +254,7 @@
 		</BlockGenus>
 		<BlockGenus name="subroutine_var" kind="command" color="200 220 0" initlabel="bg.subroutine_var" is-starter="yes" is-terminator="yes" label-unique="yes" editable-label="yes">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.param">
 					<DefaultArg genus-name="ref_var" label="variable_transmise" />
 				</BlockConnector>
 				<BlockConnector label="bc.commands" connector-type="cmd" connector-kind="socket" />
@@ -11206,7 +11206,7 @@
 				<text>Read analog value from pin</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="读取">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.color">
 					<DefaultArg genus-name="pinListColorSensor_Red" label="Red" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="plug" />
@@ -12228,7 +12228,7 @@
 				<BlockGenusMember>df_led</BlockGenusMember>
 				<BlockGenusMember>df_led_pwm</BlockGenusMember>
 				
-				<BlockGenusMember>color_sensor_read</BlockGenusMember>
+				<!-- <BlockGenusMember>color_sensor_read</BlockGenusMember> -->
 				<!-- <BlockGenusMember>digital_tube_tm1637</BlockGenusMember> -->
 				
 			<!-- 	<BlockGenusMember>iic_addr_scan</BlockGenusMember> -->

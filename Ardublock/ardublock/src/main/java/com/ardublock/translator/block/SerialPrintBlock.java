@@ -21,12 +21,12 @@ public class SerialPrintBlock extends TranslatorBlock
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0, "Serial.print(", ");\nSerial.print(\" \");\n");
 		
 		String ret = translatorBlock.toCode();
-		translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
-		String test=translatorBlock.toCode();
+//		translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
+//		String test=translatorBlock.toCode();
 //		ret+=test;
-		if(test.equals("true")){
-		    ret+="Serial.println();\n";
-		}
+//		if(test.equals("true")){
+//		    ret+="Serial.println();\n";
+//		}
 		return ret;
 	}
 }
