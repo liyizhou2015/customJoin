@@ -88,6 +88,8 @@ public class OpenblocksFrame extends JFrame
 	private static String exportSerialName="COM3";
 	private static String exportBoardName="uno";
 	
+	private static String saveString=""; 
+	
 	public void addListener(OpenblocksFrameListener ofl)
 	{
 		context.registerOpenblocksFrameListener(ofl);
@@ -361,13 +363,14 @@ public class OpenblocksFrame extends JFrame
 		{
 			public void mouseClicked(MouseEvent arg0) {
 				switchButton.setCursor(cursorWait);
+				saveString = getArduBlockString();
 				switchArduBlockInteface();
-				
 				if(theInterfaceVer == 0){
 					switchButton.setIcon(new ImageIcon(this.getClass().getResource("/com/ardublock/icons/basicVersion.png")));
 				}else{
 					switchButton.setIcon(new ImageIcon(this.getClass().getResource("/com/ardublock/icons/advancedVersion.png")));
 				}
+				context.loadArduBlockString(saveString);
 				switchButton.setCursor(cursorDefault);
 			}
 			public void mouseEntered(MouseEvent arg0) {
@@ -497,21 +500,17 @@ public class OpenblocksFrame extends JFrame
 		this.add(bottomPanel, BorderLayout.SOUTH);
 		this.add(workspace, BorderLayout.CENTER);
 		
-		
 	}
 	
 	public void switchArduBlockInteface(){
 		if(theInterfaceVer == 0){
 			theInterfaceVer = 1;
 			context.switchXML(theInterfaceVer);
-			context.resetWorksapce();
 		}else{
 			theInterfaceVer = 0 ;
 			context.switchXML(theInterfaceVer);
-			context.resetWorksapce();
 		}
-		
-//		System.out.println("theInterfaceVer: "+theInterfaceVer);
+		context.resetWorksapce();
 	}
 	
 	public void doOpenArduBlockFile()
@@ -577,7 +576,7 @@ public class OpenblocksFrame extends JFrame
 		}
 		
 		String saveString = getArduBlockString();
-		
+//		System.out.println(saveString);
 		if (context.getSaveFilePath() == null)
 		{
 			return chooseFileAndSave(saveString);

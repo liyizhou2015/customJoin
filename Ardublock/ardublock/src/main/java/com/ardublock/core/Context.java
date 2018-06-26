@@ -292,6 +292,9 @@ public class Context
 		}
 	}
 	
+	public void loadArduBlockString(String saveString) {
+		workspaceController.loadProject(saveString,null);
+	}
 	public void setEditor(Editor e) {
 		editor = e;
 	}
