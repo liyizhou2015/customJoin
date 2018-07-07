@@ -16,6 +16,7 @@ public class SubroutineBlock_var extends TranslatorBlock
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
 		String subroutineName = label.trim();
+		
 		String var;
 		String ret;
 		

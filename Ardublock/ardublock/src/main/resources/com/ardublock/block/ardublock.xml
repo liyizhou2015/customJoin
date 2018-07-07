@@ -28,26 +28,10 @@
 		<BlockGenus name="repeat_control" kind="command" color="255 221 0" initlabel="bg.repeat_control">
 			<description>
 				<text>repeat</text>
-				<arg-description n="1" name="variable">
-					A variable to track the repetitions
-				</arg-description>
-				<arg-description n="2" name="start">
-					Start value of variable
-				</arg-description>
-				<arg-description n="3" name="end">
-					End value of variable
-				</arg-description>
-				<arg-description n="4" name="step">
-					How much to change variable each time
-				</arg-description>
-				<arg-description n="4" name="commands">
-					A list of commands to do.
-				</arg-description>
-				
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.variable">
-					<DefaultArg genus-name="variable_number" label="variable name" />
+					<DefaultArg genus-name="variable_number" label="i" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.start">
 					<DefaultArg genus-name="number" label="1" />
@@ -55,23 +39,18 @@
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.end">
 					<DefaultArg genus-name="number" label="5" />
 				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.increment">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.steps">
 					<DefaultArg genus-name="number" label="1" />
 				</BlockConnector>
-				<BlockConnector label="commands" connector-type="cmd" connector-kind="socket" />
+				<BlockConnector label="bc.then" connector-type="cmd" connector-kind="socket" />
 			</BlockConnectors>
+			
 		</BlockGenus>
 		
 		<!-- ******************** Controls Menu *************** -->
 		<BlockGenus name="program" kind="command" color="255 240 0" initlabel="bg.program" is-starter="yes" is-terminator="yes" label-unique="no">
 			<description>
 				<text>this is the loop of the arduino</text>
-				<arg-description n="1" name="setup">
-					A list of commands to run first, and once only.
-				</arg-description>
-				<arg-description n="2" name="start">
-					A list of commands to repeat forever, after setup commands have finished.
-				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.setup" />
@@ -81,9 +60,6 @@
 		<BlockGenus name="loop" kind="command" color="255 240 0" initlabel="bg.loop" is-starter="yes" is-terminator="yes" label-unique="yes">
 			<description>
 				<text>this is the loop of the arduino</text>
-				<arg-description n="2" name="start">
-					A list of commands to repeat forever.
-				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.loop" />
@@ -134,17 +110,6 @@
 					Does the first list of commands if the test specified is
 					true, otherwise it will do the second list of commands.
 				</text>
-				<arg-description n="1" name="test">
-					A logical test. Is it TRUE or FALSE?
-				</arg-description>
-
-				<arg-description n="2" name="then">
-					A list of commands to do if the test is TRUE.
-				</arg-description>
-
-				<arg-description n="3" name="else">
-					A list of commands to do if the test is FALSE.
-				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector label="bc.test" connector-kind="socket" connector-type="boolean" />
@@ -158,13 +123,6 @@
 				<text>
 					While Block
 				</text>
-				<arg-description n="1" name="test">
-					A logical test. Is it TRUE or FALSE?
-				</arg-description>
-
-				<arg-description n="2" name="commands">
-					A list of commands to repeat while the test is TRUE.
-				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector label="bc.test" connector-kind="socket" connector-type="boolean" />
@@ -177,12 +135,6 @@
 			<text>
                 Do While Block
             </text>
-            <arg-description n="1" name="commands">
-					A list of commands to do.
-			</arg-description>
-			<arg-description n="2" name="test">
-					A logical test. Do the commands again if the test is TRUE
-			</arg-description>
           </description>
           <BlockConnectors>
             <BlockConnector label="commands" connector-kind="socket" connector-type="cmd" />
@@ -201,12 +153,6 @@
 		<BlockGenus name="repeat_times" kind="command" color="255 221 0" initlabel="bg.repeat_times">
 			<description>
 				<text>Repeat the commands for "times"</text>
-				<arg-description n="1" name="repeat">
-					How many times to repeat the commands
-				</arg-description>
-				<arg-description n="2" name="commands">
-					A list of commands to do be repeated.
-				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.repeat_times">
@@ -219,15 +165,6 @@
 		<BlockGenus name="repeat" kind="command" color="255 221 0" initlabel="bg.repeat">
 			<description>
 				<text>repeat</text>
-				<arg-description n="1" name="variable">
-					A variable to track the repetitions
-				</arg-description>
-				<arg-description n="2" name="repeat">
-					How many times to repeat the commands
-				</arg-description>
-				<arg-description n="3" name="commands">
-					A list of commands to do be repeated.
-				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.variable">
@@ -11993,8 +11930,8 @@
 				<BlockGenusMember>while</BlockGenusMember>
 			<!-- 	<BlockGenusMember>do_while</BlockGenusMember> -->
 				<BlockGenusMember>repeat_times</BlockGenusMember>
-				<!-- <BlockGenusMember>repeat</BlockGenusMember>
-				<BlockGenusMember>repeat_control</BlockGenusMember> -->
+				<!-- <BlockGenusMember>repeat</BlockGenusMember> -->
+				<!-- <BlockGenusMember>repeat_control</BlockGenusMember> -->
 				<BlockGenusMember>break</BlockGenusMember>
 				
 				<BlockGenusMember>millis</BlockGenusMember>

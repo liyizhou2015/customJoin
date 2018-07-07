@@ -47,7 +47,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.variable">
-					<DefaultArg genus-name="variable_number" label="variable name" />
+					<DefaultArg genus-name="variable_number" label="i" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.start">
 					<DefaultArg genus-name="number" label="1" />
@@ -55,10 +55,10 @@
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.end">
 					<DefaultArg genus-name="number" label="5" />
 				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.increment">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.steps">
 					<DefaultArg genus-name="number" label="1" />
 				</BlockConnector>
-				<BlockConnector label="commands" connector-type="cmd" connector-kind="socket" />
+				<BlockConnector label="bc.then" connector-type="cmd" connector-kind="socket" />
 			</BlockConnectors>
 		</BlockGenus>
 		
@@ -11981,20 +11981,18 @@
 	<BlockDrawerSets>
 		<BlockDrawerSet name="factory" type="stack" location="southwest" window-per-drawer="no" drawer-draggable="no">
 			<BlockDrawer name="bd.control" type="factory" is-open="yes" button-color="255 255 0">
-				
-			
 				<BlockGenusMember>loop</BlockGenusMember>
 				<BlockGenusMember>program</BlockGenusMember>
 				<BlockGenusMember>delay</BlockGenusMember>
 			<!-- 	<BlockGenusMember>delay_microseconds</BlockGenusMember> -->
-				
 				<BlockGenusMember>if</BlockGenusMember>
 				<BlockGenusMember>ifelse</BlockGenusMember>
 				<BlockGenusMember>while</BlockGenusMember>
 			<!-- 	<BlockGenusMember>do_while</BlockGenusMember> -->
 				<BlockGenusMember>repeat_times</BlockGenusMember>
-				<!-- <BlockGenusMember>repeat</BlockGenusMember>
-				<BlockGenusMember>repeat_control</BlockGenusMember> -->
+				<!-- <BlockGenusMember>repeat</BlockGenusMember> -->
+				<BlockGenusMember>repeat_control</BlockGenusMember>
+				
 				<BlockGenusMember>break</BlockGenusMember>
 				
 				<BlockGenusMember>millis</BlockGenusMember>
