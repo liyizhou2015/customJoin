@@ -42,10 +42,7 @@ public class DigitalOutputBlock extends TranslatorBlock
 			ret = ret + translatorBlock.toCode();
 			ret = ret + ", ";
 			translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
-			int val=Integer.parseInt(translatorBlock.toCode());
-			val= val > 0 ? 1 : 0;
-			
-			ret = ret + val;
+			ret = ret + translatorBlock.toCode();
 			ret = ret + ");\n";
 			return ret;
 //		}

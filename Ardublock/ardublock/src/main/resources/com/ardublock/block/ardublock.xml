@@ -22,12 +22,28 @@
 		<BlockConnectorShape shape-type="cmd2" shape-number="16" />
 		<BlockConnectorShape shape-type="cmd3" shape-number="17" />
 	</BlockConnectorShapes>
-	<BlockGenuses>
+		<BlockGenuses>
 		<BlockGenus name="dummy" kind="command" initlabel="" color="0 0 0" />
 	    <!-- ******************** NEW FOR LOOP **************** -->
 		<BlockGenus name="repeat_control" kind="command" color="255 221 0" initlabel="bg.repeat_control">
 			<description>
 				<text>repeat</text>
+				<arg-description n="1" name="variable">
+					A variable to track the repetitions
+				</arg-description>
+				<arg-description n="2" name="start">
+					Start value of variable
+				</arg-description>
+				<arg-description n="3" name="end">
+					End value of variable
+				</arg-description>
+				<arg-description n="4" name="step">
+					How much to change variable each time
+				</arg-description>
+				<arg-description n="4" name="commands">
+					A list of commands to do.
+				</arg-description>
+				
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.variable">
@@ -44,13 +60,18 @@
 				</BlockConnector>
 				<BlockConnector label="bc.then" connector-type="cmd" connector-kind="socket" />
 			</BlockConnectors>
-			
 		</BlockGenus>
 		
 		<!-- ******************** Controls Menu *************** -->
 		<BlockGenus name="program" kind="command" color="255 240 0" initlabel="bg.program" is-starter="yes" is-terminator="yes" label-unique="no">
 			<description>
 				<text>this is the loop of the arduino</text>
+				<arg-description n="1" name="setup">
+					A list of commands to run first, and once only.
+				</arg-description>
+				<arg-description n="2" name="start">
+					A list of commands to repeat forever, after setup commands have finished.
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.setup" />
@@ -60,6 +81,9 @@
 		<BlockGenus name="loop" kind="command" color="255 240 0" initlabel="bg.loop" is-starter="yes" is-terminator="yes" label-unique="yes">
 			<description>
 				<text>this is the loop of the arduino</text>
+				<arg-description n="2" name="start">
+					A list of commands to repeat forever.
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.loop" />
@@ -110,6 +134,17 @@
 					Does the first list of commands if the test specified is
 					true, otherwise it will do the second list of commands.
 				</text>
+				<arg-description n="1" name="test">
+					A logical test. Is it TRUE or FALSE?
+				</arg-description>
+
+				<arg-description n="2" name="then">
+					A list of commands to do if the test is TRUE.
+				</arg-description>
+
+				<arg-description n="3" name="else">
+					A list of commands to do if the test is FALSE.
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector label="bc.test" connector-kind="socket" connector-type="boolean" />
@@ -123,6 +158,13 @@
 				<text>
 					While Block
 				</text>
+				<arg-description n="1" name="test">
+					A logical test. Is it TRUE or FALSE?
+				</arg-description>
+
+				<arg-description n="2" name="commands">
+					A list of commands to repeat while the test is TRUE.
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector label="bc.test" connector-kind="socket" connector-type="boolean" />
@@ -135,6 +177,12 @@
 			<text>
                 Do While Block
             </text>
+            <arg-description n="1" name="commands">
+					A list of commands to do.
+			</arg-description>
+			<arg-description n="2" name="test">
+					A logical test. Do the commands again if the test is TRUE
+			</arg-description>
           </description>
           <BlockConnectors>
             <BlockConnector label="commands" connector-kind="socket" connector-type="cmd" />
@@ -153,6 +201,12 @@
 		<BlockGenus name="repeat_times" kind="command" color="255 221 0" initlabel="bg.repeat_times">
 			<description>
 				<text>Repeat the commands for "times"</text>
+				<arg-description n="1" name="repeat">
+					How many times to repeat the commands
+				</arg-description>
+				<arg-description n="2" name="commands">
+					A list of commands to do be repeated.
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.repeat_times">
@@ -165,6 +219,15 @@
 		<BlockGenus name="repeat" kind="command" color="255 221 0" initlabel="bg.repeat">
 			<description>
 				<text>repeat</text>
+				<arg-description n="1" name="variable">
+					A variable to track the repetitions
+				</arg-description>
+				<arg-description n="2" name="repeat">
+					How many times to repeat the commands
+				</arg-description>
+				<arg-description n="3" name="commands">
+					A list of commands to do be repeated.
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.variable">
@@ -407,11 +470,6 @@
 		</BlockGenus>
 		
 		<BlockGenus name="tone" kind="command" color="205 133 63" initlabel="tone">
-			<description>
-				<text>Generates a square wave of the specified frequency (and 50%
-					duty cycle) on a pin.
-				</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="DuinoEDU_D8" label="D8" />
@@ -429,11 +487,6 @@
 		</BlockGenus>
 
 		<BlockGenus name="tone_time" kind="command" color="205 133 63" initlabel="tone">
-			<description>
-				<text>Generates a square wave of the specified frequency (and 50%
-					duty cycle) on a pin.
-				</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListDigital_D8" label="D8" />
@@ -453,10 +506,6 @@
 		</BlockGenus>
 
 		<BlockGenus name="no_tone" kind="command" color="205 133 63" initlabel="noTone">
-			<description>
-				<text>Stops the generation of a square wave triggered by tone().
-				</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListDigital_D8" label="D8" />
@@ -2165,8 +2214,8 @@
 				<BlockConnector connector-type="poly" connector-kind="socket" label="bc.variable">
 					<DefaultArg genus-name="variable_poly" label="Char" />
 				</BlockConnector>
-				<BlockConnector connector-type="poly" connector-kind="socket" label="char">
-					<DefaultArg genus-name="char" label="A" />
+				<BlockConnector connector-type="poly" connector-kind="socket" label="bc.value">
+					<DefaultArg genus-name="char" label="a" />
 				</BlockConnector>
 
 			</BlockConnectors>
@@ -2220,9 +2269,7 @@
 	    </BlockGenus>
 		<!--****************** Utilities *************** -->		
 		<BlockGenus name="servo_default" kind="command" color="205 133 63" initlabel="bg.servo">
-			<description>
-				<text>Servo</text>
-			</description>
+			
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListDigital_D8" label="D8"/>
@@ -2322,9 +2369,6 @@
 		</BlockGenus>
 
 		<BlockGenus name="LCD_I2C_Sainsmart_16by2" kind="command" color="152 29 155" initlabel="bg.LCD_I2C_Sainsmart_16by2">
-			<description>
-				<text>16 Char by 2 Line LCD display</text>
-			</description>			
 			<BlockConnectors>
 				<BlockConnector connector-type="string" connector-kind="socket" label="bc.print">
 					<DefaultArg genus-name="message" label="LCD. I2C"/>
@@ -2512,9 +2556,9 @@
 				<BlockConnector connector-type="string" connector-kind="socket" label="bc.message">
 					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
-				<BlockConnector connector-type="boolean" connector-kind="socket" label="bc.ln">
+				<!-- <BlockConnector connector-type="boolean" connector-kind="socket" label="bc.ln">
 					<DefaultArg genus-name="true" label="true" />
-				</BlockConnector>
+				</BlockConnector> -->
 			</BlockConnectors>
 		</BlockGenus>
 
@@ -3660,9 +3704,7 @@
 		
 		
 		<BlockGenus name="df_digital_ambient_light_sensor" kind="data" color="13 152 164" initlabel="bg.df_analog_ambient_light_sensor">
-			<description>
-				<text>The ambient light sensor detects light density.  </text>
-			</description>
+			
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListDigital_D13" label="D13" />
@@ -3677,9 +3719,6 @@
 		</BlockGenus>
 		
 		<BlockGenus name="df_analog_ambient_light_sensor" kind="data" color="13 152 164" initlabel="bg.df_analog_ambient_light_sensor">
-			<description>
-				<text>The ambient light sensor detects light density.  </text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalog_A0" label="A0" />
@@ -3693,9 +3732,6 @@
 			</Images>
 		</BlockGenus>
 		<BlockGenus name="df_analog_grayscale_sensor" kind="data" color="13 152 164" initlabel="bg.df_analog_grayscale_sensor">
-			<description>
-				<text>Analog Grayscale Sensor detect the grayscale.</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalog_A0" label="A0" />
@@ -3726,9 +3762,6 @@
 		</BlockGenus>
 
 		<BlockGenus name="df_analog_mma7361_x" kind="data" color="13 152 164" initlabel="bg.df_analog_mma7361_x">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalog_A0" label="A0" />
@@ -3743,9 +3776,6 @@
 		</BlockGenus>
 
 		<BlockGenus name="df_analog_mma7361_y" kind="data" color="13 152 164" initlabel="bg.df_analog_mma7361_y">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalog_A0" label="A0" />
@@ -3761,9 +3791,6 @@
 
 
 		<BlockGenus name="df_analog_mma7361_z" kind="data" color="13 152 164" initlabel="bg.df_analog_mma7361_z">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalog_A0" label="A0" />
@@ -3778,9 +3805,6 @@
 		</BlockGenus>
 
 		<BlockGenus name="df_analog_gp2y0a21" kind="data" color="13 152 164" initlabel="bg.df_analog_gp2y0a21">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalog_A0" label="A0" />
@@ -3795,9 +3819,6 @@
 		</BlockGenus>
 
 		<BlockGenus name="df_analog_moisture" kind="data" color="13 152 164" initlabel="bg.df_analog_moisture">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalog_A0" label="A0" />
@@ -3813,9 +3834,6 @@
 
 
 		<BlockGenus name="df_temperature_sensor" kind="data" color="13 152 164" initlabel="bg.df_temperature_sensor">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalog_A0" label="A0" />
@@ -3829,9 +3847,6 @@
 			</Images>
 		</BlockGenus>
 		<BlockGenus name="df_joystick_module_x" kind="data" color="13 152 164" initlabel="bg.df_joystick_module_x">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalog_A0" label="A0" />
@@ -3845,9 +3860,6 @@
 			</Images>
 		</BlockGenus>
 		<BlockGenus name="df_joystick_module_y" kind="data" color="13 152 164" initlabel="bg.df_joystick_module_y">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalog_A0" label="A0" />
@@ -3861,9 +3873,6 @@
 			</Images>
 		</BlockGenus>
 		<BlockGenus name="df_mma7260_x" kind="data" color="13 152 164" initlabel="bg.df_mma7260_x">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalog_A0" label="A0" />
@@ -3877,9 +3886,6 @@
 			</Images>
 		</BlockGenus>
 		<BlockGenus name="df_mma7260_y" kind="data" color="13 152 164" initlabel="bg.df_mma7260_y">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalog_A0" label="A0" />
@@ -3893,9 +3899,6 @@
 			</Images>
 		</BlockGenus>
 		<BlockGenus name="df_mma7260_z" kind="data" color="13 152 164" initlabel="bg.df_mma7260_z">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalog_A0" label="A0" />
@@ -3909,9 +3912,7 @@
 			</Images>
 		</BlockGenus>
 		<BlockGenus name="df_analog_rotation_sensor_v1" kind="data" color="13 152 164" initlabel="bg.df_analog_rotation_sensor_v1">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
+			
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalog_A0" label="A0" />
@@ -3925,9 +3926,6 @@
 			</Images>
 		</BlockGenus>
 		<BlockGenus name="df_analog_rotation_sensor_v2" kind="data" color="13 152 164" initlabel="bg.df_analog_rotation_sensor_v2">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalog_A0" label="A0" />
@@ -3958,9 +3956,6 @@
 
 		
 		<BlockGenus name="df_analog_sound_sensor" kind="data" color="13 152 164" initlabel="bg.df_analog_sound_sensor">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalog_A0" label="A0" />
@@ -3974,9 +3969,6 @@
 			</Images>
 		</BlockGenus>
 		<BlockGenus name="df_analog_volume_sensor" kind="data" color="13 152 164" initlabel="bg.df_analog_sound_sensor">
-			<description>
-				<text>Read analog value of sound volume from pin</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalog_A0" label="A0" />
@@ -3990,9 +3982,6 @@
 			</Images>
 		</BlockGenus>
 		<BlockGenus name="df_analog_gas_sensor" kind="data" color="13 152 164" initlabel="bg.df_analog_gas_sensor">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalog_A0" label="A0" />
@@ -4008,9 +3997,6 @@
 
 
 		<BlockGenus name="df_analog_co_sensor" kind="data" color="13 152 164" initlabel="bg.df_analog_co_sensor">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalog_A0" label="A0" />
@@ -4025,9 +4011,6 @@
 		</BlockGenus>
 
 		<BlockGenus name="df_analog_voltage_divider" kind="data" color="13 152 164" initlabel="bg.df_analog_voltage_divider">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalog_A0" label="A0" />
@@ -4042,9 +4025,6 @@
 		</BlockGenus>
 
 		<BlockGenus name="df_servo" kind="command" color="13 152 164" initlabel="bg.df_servo">
-			<description>
-				<text>set a pin to pwm</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="DuinoEDU_D2" label="D2" />
@@ -4056,9 +4036,6 @@
 		</BlockGenus>
 
 		<BlockGenus name="df_360_degree_rotation_motor" kind="command" color="13 152 164" initlabel="bg.df_360_degree_rotation_motor">
-			<description>
-				<text>set a pin to pwm</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="number" label="1" />
@@ -4070,9 +4047,6 @@
 		</BlockGenus>
 		
 		<BlockGenus name="df_dht11_temperature" kind="data" color="13 152 164" initlabel="bg.df_dht11_temperature">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="DuinoEDU_D2" label="D2" />
@@ -4087,9 +4061,6 @@
 		</BlockGenus>
 		
 		<BlockGenus name="df_dht11_humidity" kind="data" color="13 152 164" initlabel="bg.df_dht11_humidity">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="DuinoEDU_D2" label="D2" />
@@ -4104,9 +4075,6 @@
 		</BlockGenus>
 		
 		<BlockGenus name="df_romeo_motors" kind="command" color="205 133 63" initlabel="bg.df_romeo_motors">
-			<description>
-				<text>set a pin to pwm</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.m1">
 					<DefaultArg genus-name="number" label="100" />
@@ -4123,9 +4091,6 @@
 		</BlockGenus>
 		
 		<BlockGenus name="df_romeo_motor" kind="command" color="205 133 63" initlabel="bg.df_romeo_motor">
-			<description>
-				<text>set a pin to pwm</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalogWrite_D3" label="D3" />
@@ -4145,9 +4110,6 @@
 		</BlockGenus>
 		
 		<BlockGenus name="df_romeo_motor_stop" kind="command" color="205 133 63" initlabel="bg.df_romeo_motor_stop">
-			<description>
-				<text>set a pin to pwm</text>
-			</description>
 			<Images>
 				<Image>
 					<FileLocation>com/ardublock/block/dfrobot/motor001.png</FileLocation>
@@ -4156,9 +4118,6 @@
 		</BlockGenus>
 		
 		<BlockGenus name="df_led" kind="command" color="152 29 155" initlabel="bg.df_led">
-			<description>
-				<text>DFRobot LED Module</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListDigital_D13" label="D13" />
@@ -4176,9 +4135,6 @@
 		</BlockGenus>
 
 		<BlockGenus name="df_led_pwm" kind="command" color="152 29 155" initlabel="bg.df_led_pwm">
-			<description>
-				<text>DFRobot LED Module</text>
-			</description>
 			<BlockConnectors>
 				<!-- <BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="number" label="1" />
@@ -4236,9 +4192,6 @@
 		</BlockGenus>
 
 		<BlockGenus name="df_relay" kind="command" color="205 133 63" initlabel="bg.df_relay">
-			<description>
-				<text>Dfrobot Relay Module</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListDigital_D13" label="D13" />
@@ -11108,9 +11061,7 @@
 		</BlockGenus>
 		
 		<BlockGenus name="color_sensor_setup" kind="command" color="13 152 164" initlabel="bg.color_sensor_setup">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
+		
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="S0#">
 					<DefaultArg genus-name="pinListDigital_D6" label="D6" />
@@ -11139,9 +11090,6 @@
 		</BlockGenus>
 		
 		<BlockGenus name="color_sensor_read" kind="data" color="13 152 164" initlabel="bg.color_sensor_read">
-			<description>
-				<text>Read analog value from pin</text>
-			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.color">
 					<DefaultArg genus-name="pinListColorSensor_Red" label="Red" />
@@ -11213,9 +11161,7 @@
 		</BlockGenus>
 		
 		<BlockGenus name="digital_tube_tm1637" kind="command" color="152 29 155" initlabel="bg.digital_tube_tm1637">
-			<description>
-				<text>digital_tube_tm1637</text>
-			</description>
+			
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.CLK">
 					<DefaultArg genus-name="pinListDigital_D3" label="D3" />
@@ -11251,14 +11197,13 @@
 		</BlockGenus>
 		
 		<BlockGenus name="iic_addr_scan" kind="command" color="152 29 155" initlabel="bg.iic_addr_scan">
-			<description>
-				<text>iic addr scan</text>
-			</description>
+			
 			<BlockConnectors>
 			</BlockConnectors>
 		</BlockGenus>
 	</BlockGenuses>
-<!-- Start of Ardublock Standard UI layout -->
+	
+	<!-- Start of Ardublock Standard UI layout -->
 	<BlockFamilies>
 		<BlockFamily>
 			<FamilyMember>digital-high</FamilyMember>

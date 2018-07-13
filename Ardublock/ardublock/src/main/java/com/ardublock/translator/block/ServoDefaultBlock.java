@@ -26,19 +26,20 @@ public class ServoDefaultBlock extends TranslatorBlock {
 		String pinNumber = tb.toCode();
 		
 		//****** Bit long w but easy to see what's happening. Any other invalid pins? *********
-		if ( ! ("2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32/"
-				+ " 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53").contains(pinNumber.trim()) )
-		{
-			throw new BlockException(blockId, uiMessageBundle.getString("ardublock.error_msg.Digital_pin_slot"));
-		}
+//		if ( ! ("2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32/"
+//				+ " 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53").contains(pinNumber.trim()) )
+//		{
+//			throw new BlockException(blockId, uiMessageBundle.getString("ardublock.error_msg.Digital_pin_slot"));
+//		}
 		
 		String servoName = "servo_pin_" + pinNumber;
 
 		tb = this.getRequiredTranslatorBlockAtSocket(1);
-		int val=Integer.parseInt(tb.toCode());
-		val = val >= 0 ? val : 0;
-		val = val <256 ? val : 255;
-		String ret = servoName + ".write( " + val + " );\n";
+//		String code=tb.toCode();
+//		int val=Integer.parseInt(code);
+//		val = val >= 0 ? val : 0;
+//		val = val <=180 ? val : 180;
+		String ret = servoName + ".write( " + tb.toCode() + " );\n";
 		translator.addHeaderFile("Servo.h");
 		translator.addDefinitionCommand("Servo " + servoName + ";");
 		translator.addSetupCommand(servoName + ".attach(" + pinNumber + servoSpecs + ");");

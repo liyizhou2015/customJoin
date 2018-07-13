@@ -10,7 +10,17 @@ import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
 public class RomeoMotorBlock extends TranslatorBlock
 {
-	
+	public static final String MOTOR_DEFINITION = ""
+			+ "void setMotors(int m1, int m2, int spd) {\n"
+			+ "  spd=constrain(spd, -255, 255);\n"
+			+ "  if (spd >= 0) {\n"
+			+ "    analogWrite(m1, spd);\n"
+			+ "    analogWrite(m2, 0);\n"
+			+ "  } else {\n"
+			+ "    analogWrite(m1, 0);\n"
+			+ "    analogWrite(m2, -spd);\n"
+			+ "  }\n"
+			+ "}\n";
 	public RomeoMotorBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{
 		super(blockId, translator, codePrefix, codeSuffix, label);
@@ -25,21 +35,17 @@ public class RomeoMotorBlock extends TranslatorBlock
 		pinA=translatorBlock.toCode();
 		translatorBlock=this.getRequiredTranslatorBlockAtSocket(1);
 		pinN=translatorBlock.toCode();
-//		translator.addOutputPin(pinA);
-//		translator.addOutputPin(pinN);
+		
+		translator.addDefinitionCommand(MOTOR_DEFINITION);
 		translator.addSetupCommand("analogWrite("+pinA+", 0);");
 		translator.addSetupCommand("analogWrite("+pinN+", 0);");
 		
 		String ret ="";
 		translatorBlock = this.getRequiredTranslatorBlockAtSocket(2);
-		int spd= Integer.parseInt(translatorBlock.toCode());
-		if(spd > 255){
-			spd = 255;
-		}else if(spd < -255){
-			spd=-255;
-		};
-		ret+="analogWrite(" + pinA + "," + (spd >= 0 ? spd : 0 ) + ");\n";
-		ret+="analogWrite(" + pinN + "," + (spd >= 0 ? 0 : -spd ) + ");\n";
+		String spd=translatorBlock.toCode();
+		
+		ret+="setMotors(" + pinA + "," + pinN+ "," + spd + ");\n";
+		
 		return ret;
 	}
 

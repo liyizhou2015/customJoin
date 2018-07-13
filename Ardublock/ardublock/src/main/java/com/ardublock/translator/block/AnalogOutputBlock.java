@@ -19,11 +19,9 @@ public class AnalogOutputBlock extends TranslatorBlock
 		
 		translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
 		String value = translatorBlock.toCode();
-		int val=Integer.parseInt(value);
-		val=val >= 0 ? (val >= 256 ? 255 : val) : 0;
 		
 		/* NOTE: AnalogWrite never needs the pin to be set as an OUTPUT */
-		String ret = "analogWrite(" + portNum + " , " + val + ");\n";
+		String ret = "analogWrite(" + portNum + " , " + value + ");\n";
 		return ret;
 	}
 
