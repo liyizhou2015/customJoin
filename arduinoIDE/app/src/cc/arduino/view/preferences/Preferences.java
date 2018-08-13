@@ -272,7 +272,7 @@ public class Preferences extends javax.swing.JDialog {
     checkboxesContainer.add(updateExtensionBox);
 
     saveVerifyUploadBox.setText(tr("Save when verifying or uploading"));
-    checkboxesContainer.add(saveVerifyUploadBox);
+//    checkboxesContainer.add(saveVerifyUploadBox);
 
     jLabel1.setText(tr("Interface scale:"));
 

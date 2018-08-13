@@ -155,7 +155,7 @@ public class Base {
     List<JMenu> boardsCustomMenus=getBoardsCustomMenus();
     TargetBoard board=BaseNoGui.getTargetPlatform().getBoard(boardName);
     
-//    System.out.println("handleSelectBoard: " + board);
+    System.out.println("handleSelectBoard: " + board);
     
     BaseNoGui.selectBoard((TargetBoard) board);
     filterVisibilityOfSubsequentBoardMenus(boardsCustomMenus, (TargetBoard) board, 1);
@@ -163,7 +163,6 @@ public class Base {
     rebuildImportMenu(Editor.importMenu);
     rebuildExamplesMenu(Editor.examplesMenu);
   }
-  
   
   
   static public void initLogger() {

@@ -96,7 +96,18 @@ public class Editor extends JFrame implements RunnerListener {
 //    System.out.println(serialPortName+" : "+boardName);
     selectSerialPort(serialPortName);
     base.handleSelectBoard(boardName);
+    
+    onBoardOrPortChange();
+    base.onBoardOrPortChange();
   }
+  
+  public void handleSerialConfigForAB(String serialPortName,String boardName) {
+//  System.out.println(serialPortName+" : "+boardName);
+  selectSerialPort(serialPortName);
+//  base.handleSelectBoard(boardName);
+  onBoardOrPortChange();
+  base.onBoardOrPortChange();
+}
   
   private static class ShouldSaveIfModified
       implements Predicate<SketchController> {
@@ -510,6 +521,9 @@ public class Editor extends JFrame implements RunnerListener {
     toolsMenu.addMenuListener(new StubMenuListener() {
       @Override
       public void menuSelected(MenuEvent e) {
+        
+//        System.out.println("tools clicked");
+        
         List<Component> components = Arrays.asList(toolsMenu.getComponents());
         int offset = 0;
         for (JMenu menu : base.getBoardsCustomMenus()) {
@@ -789,7 +803,7 @@ public class Editor extends JFrame implements RunnerListener {
 
     toolsMenu.addMenuListener(new StubMenuListener() {
       public void menuSelected(MenuEvent e) {
-        //System.out.println("Tools menu selected.");
+//        System.out.println("Tools menu selected.");
         populatePortMenu();
         for (Component c : toolsMenu.getMenuComponents()) {
           if ((c instanceof JMenu) && c.isVisible()) {
@@ -2142,15 +2156,15 @@ public class Editor extends JFrame implements RunnerListener {
    * hitting export twice, quickly, and horking things up.
    */
   synchronized public void handleExport(final boolean usingProgrammer) {
-    if (PreferencesData.getBoolean("editor.save_on_verify")) {
-      if (sketch.isModified()
-          && !sketchController.isReadOnly(
-                                          BaseNoGui.librariesIndexer
-                                              .getInstalledLibraries(),
-                                          BaseNoGui.getExamplesPath())) {
-        handleSave(true);
-      }
-    }
+//    if (PreferencesData.getBoolean("editor.save_on_verify")) {
+//      if (sketch.isModified()
+//          && !sketchController.isReadOnly(
+//                                          BaseNoGui.librariesIndexer
+//                                              .getInstalledLibraries(),
+//                                          BaseNoGui.getExamplesPath())) {
+//        handleSave(true);
+//      }
+//    }
     toolbar.activateExport();
     console.clear();
     status.progress(tr("Uploading to I/O Board..."));
