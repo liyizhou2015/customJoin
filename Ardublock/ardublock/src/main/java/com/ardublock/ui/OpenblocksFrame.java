@@ -303,12 +303,15 @@ public class OpenblocksFrame extends JFrame
 		serialMonitorButton.setHorizontalTextPosition(SwingConstants.CENTER);
 		serialMonitorButton.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent e) {
+				context.getEditor().handleSerialConfigForAB(exportSerialName,exportBoardName);
 				context.getEditor().handleSerial();
 			}
 		});
 		serialMonitorButton.addMouseListener(new MouseListener()
 		{
-			public void mouseClicked(MouseEvent arg0) {}
+			public void mouseClicked(MouseEvent arg0) {
+				
+			}
 			public void mouseEntered(MouseEvent arg0) {
 				serialMonitorButton.setCursor(cursorHand);
 				serialMonitorButton.setContentAreaFilled(true);
@@ -394,7 +397,7 @@ public class OpenblocksFrame extends JFrame
         contentPane.add(label);  
         
         
-        final String items[] = {" "};   
+        final String items[] = {"     "};   
         
         final DefaultComboBoxModel model = new DefaultComboBoxModel(items);  
         
