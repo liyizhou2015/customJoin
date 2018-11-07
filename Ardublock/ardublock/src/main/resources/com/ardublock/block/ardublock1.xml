@@ -238,10 +238,10 @@
 				<text>Read digital from the pin</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="#">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListDigital_D6" label="D6" />
 				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="plug" />
+				<BlockConnector connector-type="number" connector-kind="plug"/>
 			</BlockConnectors>
 		</BlockGenus>
 
@@ -251,7 +251,7 @@
 				<text>Read digital from the pin. Default High</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="#">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListDigital_D6" label="D6" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="plug" />
@@ -263,7 +263,7 @@
 				<text>Read analog value from pin</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="#">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalog_A0" label="A0" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="plug" />
@@ -274,10 +274,10 @@
 				<text>write digital to pin</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="#">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListDigital_D13" label="D13" />
 				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.value">
 					<DefaultArg genus-name="number" label="1" />
 				</BlockConnector>
 			</BlockConnectors>
@@ -288,10 +288,10 @@
 				<text>write analog to pin</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="#">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListAnalogWrite_D3" label="D3" />
 				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket">
+				<BlockConnector connector-type="number" connector-kind="socket"  label="bc.value">
 					<DefaultArg genus-name="number" label="255" />
 				</BlockConnector>
 			</BlockConnectors>
@@ -11041,6 +11041,9 @@
 			</BlockConnectors>
 		</BlockGenus>
 	</BlockGenuses>
+
+
+
 <!-- Start of Ardublock Standard UI layout -->
 	<BlockFamilies>
 		<BlockFamily>
@@ -11759,7 +11762,7 @@
 				<BlockGenusMember>equal_string</BlockGenusMember>
 				<!-- <BlockGenusMember>not_equal_string</BlockGenusMember> -->
 				
-				<BlockGenusMember>string_empty</BlockGenusMember>
+			<!-- 	<BlockGenusMember>string_empty</BlockGenusMember> -->
 				
 				<BlockGenusMember>and</BlockGenusMember>
 				<BlockGenusMember>or</BlockGenusMember>
