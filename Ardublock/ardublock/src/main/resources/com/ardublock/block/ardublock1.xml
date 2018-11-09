@@ -2352,6 +2352,12 @@
 			</BlockConnectors>
 		</BlockGenus>
 		
+		<BlockGenus name="serial_read_string" kind="data" color="245 245 245" initlabel="bg.serial_read_string">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+		
 		<BlockGenus name="serial_parseInt" kind="data" color="245 245 245" initlabel="bg.serial_parseInt">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
@@ -4042,6 +4048,24 @@
 			<Images>
 				<Image>
 					<FileLocation>com/ardublock/block/dfrobot/dfr0017.png</FileLocation>
+				</Image>
+			</Images>
+		</BlockGenus>
+
+
+
+		<BlockGenus name="vibrationModule" kind="command" color="205 133 63" initlabel="bg.vibrationModule">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
+					<DefaultArg genus-name="pinListDigital_D13" label="D13" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.status">
+					<DefaultArg genus-name="pinListSwitchOff" label="OFF" />
+				</BlockConnector>
+			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/dfrobot/dfr0018.png</FileLocation>
 				</Image>
 			</Images>
 		</BlockGenus>
@@ -11154,7 +11178,7 @@
 			<FamilyMember>pinListDigital_D18</FamilyMember>
 			<FamilyMember>pinListDigital_D19</FamilyMember>
 			<!--****************** Digital pins on Arduino Mega only *************** -->
-			<FamilyMember>pinListDigital_D20</FamilyMember>
+		<!-- 	<FamilyMember>pinListDigital_D20</FamilyMember>
 			<FamilyMember>pinListDigital_D21</FamilyMember>
 			<FamilyMember>pinListDigital_D22</FamilyMember>
 			<FamilyMember>pinListDigital_D23</FamilyMember>
@@ -11187,7 +11211,7 @@
 			<FamilyMember>pinListDigital_D50</FamilyMember>
 			<FamilyMember>pinListDigital_D51</FamilyMember>
 			<FamilyMember>pinListDigital_D52</FamilyMember>
-			<FamilyMember>pinListDigital_D53</FamilyMember>
+			<FamilyMember>pinListDigital_D53</FamilyMember> -->
 			<!--****************** Analog pins that can be used as digital pins. *************** -->
 			<!--****************** In practice only used with UNO boards    *************** -->
 			<FamilyMember>pinListAnalog_A0</FamilyMember>
@@ -11207,17 +11231,17 @@
 			<FamilyMember>pinListAnalog_A4</FamilyMember>
 			<FamilyMember>pinListAnalog_A5</FamilyMember>
 			<!--****************** Extra Analog DAC pins on Mega/Nano Boards *************** -->
-			<FamilyMember>pinListAnalog_A6</FamilyMember>
-			<FamilyMember>pinListAnalog_A7</FamilyMember>
+			<!-- <FamilyMember>pinListAnalog_A6</FamilyMember>
+			<FamilyMember>pinListAnalog_A7</FamilyMember> -->
 			<!--****************** Extra Analog DAC pins on Mega Boards *************** -->
-			<FamilyMember>pinListAnalog_A8</FamilyMember>
+			<!-- <FamilyMember>pinListAnalog_A8</FamilyMember>
 			<FamilyMember>pinListAnalog_A9</FamilyMember>
 			<FamilyMember>pinListAnalog_A10</FamilyMember>
 			<FamilyMember>pinListAnalog_A11</FamilyMember>
 			<FamilyMember>pinListAnalog_A12</FamilyMember>
 			<FamilyMember>pinListAnalog_A13</FamilyMember>
 			<FamilyMember>pinListAnalog_A14</FamilyMember>
-			<FamilyMember>pinListAnalog_A15</FamilyMember>			
+			<FamilyMember>pinListAnalog_A15</FamilyMember>		 -->	
 		</BlockFamily>
 		
 		<BlockFamily>
@@ -11229,7 +11253,7 @@
 			<FamilyMember>pinListAnalogWrite_D10</FamilyMember>
 			<FamilyMember>pinListAnalogWrite_D11</FamilyMember>
 			<!--****************** Extra 'Analog' PWM pins on Arduino Mega only *************** -->
-			<FamilyMember>pinListAnalogWrite_D2</FamilyMember>
+			<!-- <FamilyMember>pinListAnalogWrite_D2</FamilyMember>
 			<FamilyMember>pinListAnalogWrite_D4</FamilyMember>
 			<FamilyMember>pinListAnalogWrite_D7</FamilyMember>
 			<FamilyMember>pinListAnalogWrite_D8</FamilyMember>
@@ -11237,7 +11261,7 @@
 			<FamilyMember>pinListAnalogWrite_D13</FamilyMember>
 			<FamilyMember>pinListAnalogWrite_D44</FamilyMember>
 			<FamilyMember>pinListAnalogWrite_D45</FamilyMember>
-			<FamilyMember>pinListAnalogWrite_D46</FamilyMember>
+			<FamilyMember>pinListAnalogWrite_D46</FamilyMember> -->
 		</BlockFamily>
 		
 		<BlockFamily>
@@ -11753,12 +11777,12 @@
 				<BlockGenusMember>less</BlockGenusMember>
 				<BlockGenusMember>equal</BlockGenusMember>
 				<!-- <BlockGenusMember>greater_equal</BlockGenusMember>
-				<BlockGenusMember>less_equal</BlockGenusMember> -->
-			<!-- 	<BlockGenusMember>not_equal</BlockGenusMember> -->
-			<!-- 	<BlockGenusMember>equal_digital</BlockGenusMember> -->
-		<!-- 		<BlockGenusMember>not_equal_digital</BlockGenusMember> -->
-				<!-- <BlockGenusMember>equal_poly</BlockGenusMember> -->
-				<!--<BlockGenusMember>not_equal_poly</BlockGenusMember>-->
+				<BlockGenusMember>less_equal</BlockGenusMember>
+				<BlockGenusMember>not_equal</BlockGenusMember>
+				<BlockGenusMember>equal_digital</BlockGenusMember>
+				<BlockGenusMember>not_equal_digital</BlockGenusMember> -->
+				<BlockGenusMember>equal_poly</BlockGenusMember>
+				<!-- <BlockGenusMember>not_equal_poly</BlockGenusMember> -->
 				<BlockGenusMember>equal_string</BlockGenusMember>
 				<!-- <BlockGenusMember>not_equal_string</BlockGenusMember> -->
 				
@@ -11829,6 +11853,7 @@
 				<BlockGenusMember>serial_available</BlockGenusMember>
 				<!-- <BlockGenusMember>serial_available2</BlockGenusMember> -->
 				<BlockGenusMember>serial_read</BlockGenusMember>
+				<BlockGenusMember>serial_read_string</BlockGenusMember>
 				<BlockGenusMember>serial_parseInt</BlockGenusMember>
 				 <!-- <BlockGenusMember>DuinoEDU_Guino_Read</BlockGenusMember>
 				<BlockGenusMember>DuinoEDU_Guino_Slider</BlockGenusMember>
@@ -11948,6 +11973,7 @@
 				<!-- <BlockGenusMember>tone_time</BlockGenusMember> -->
 				<BlockGenusMember>no_tone</BlockGenusMember>
 				<BlockGenusMember>df_romeo_motor</BlockGenusMember>
+				<BlockGenusMember>vibrationModule</BlockGenusMember>
 				<BlockGenusMember>df_relay</BlockGenusMember>
 			</BlockDrawer>
 			

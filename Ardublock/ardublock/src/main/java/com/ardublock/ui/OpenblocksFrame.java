@@ -45,7 +45,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
-
+import javax.swing.BorderFactory;
 
 import javax.swing.event.PopupMenuListener;
 import javax.swing.event.PopupMenuEvent;
@@ -158,6 +158,11 @@ public class OpenblocksFrame extends JFrame
 		
 		final JLabel buttonTooltip = new JLabel();
 		
+		final JLabel tooltipDisplay = new JLabel();
+		tooltipDisplay.setPreferredSize( new Dimension(150, 52));
+		tooltipDisplay.setOpaque(false);
+		tooltipDisplay.setHorizontalTextPosition(SwingConstants.CENTER);
+		
 		final JButton newButton = new JButton();
 		newButton.setIcon(new ImageIcon(this.getClass().getResource("/com/ardublock/icons/new.png")));
 		newButton.setContentAreaFilled(true); 
@@ -175,10 +180,12 @@ public class OpenblocksFrame extends JFrame
 			public void mouseEntered(MouseEvent arg0) {
 				newButton.setCursor(cursorHand);
 				buttonTooltip.setText(uiMessageBundle.getString("ardublock.ui.new"));
+				tooltipDisplay.setText(uiMessageBundle.getString("ardublock.ui.new"));
 				newButton.setContentAreaFilled(true); 
 			}
 			public void mouseExited(MouseEvent arg0) {
 				buttonTooltip.setText("");
+				tooltipDisplay.setText("");
 				newButton.setContentAreaFilled(false);
 			}
 			public void mousePressed(MouseEvent arg0) {}
@@ -202,10 +209,12 @@ public class OpenblocksFrame extends JFrame
 				saveButton.setCursor(cursorHand);
 				saveButton.setContentAreaFilled(true); 
 				buttonTooltip.setText(uiMessageBundle.getString("ardublock.ui.save"));
+				tooltipDisplay.setText(uiMessageBundle.getString("ardublock.ui.save"));
 			}
 			public void mouseExited(MouseEvent arg0) {
 				saveButton.setContentAreaFilled(false);
 				buttonTooltip.setText("");
+				tooltipDisplay.setText("");
 			}
 			public void mousePressed(MouseEvent arg0) {}
 			public void mouseReleased(MouseEvent arg0) {}
@@ -228,10 +237,12 @@ public class OpenblocksFrame extends JFrame
 				saveAsButton.setCursor(cursorHand);
 				saveAsButton.setContentAreaFilled(true); 
 				buttonTooltip.setText(uiMessageBundle.getString("ardublock.ui.saveAs"));
+				tooltipDisplay.setText(uiMessageBundle.getString("ardublock.ui.saveAs"));
 			}
 			public void mouseExited(MouseEvent arg0) {
 				saveAsButton.setContentAreaFilled(false);
 				buttonTooltip.setText("");
+				tooltipDisplay.setText("");
 			}
 			public void mousePressed(MouseEvent arg0) {}
 			public void mouseReleased(MouseEvent arg0) {}
@@ -255,10 +266,12 @@ public class OpenblocksFrame extends JFrame
 				openButton.setCursor(cursorHand);
 				openButton.setContentAreaFilled(true); 
 				buttonTooltip.setText(uiMessageBundle.getString("ardublock.ui.load"));
+				tooltipDisplay.setText(uiMessageBundle.getString("ardublock.ui.load"));
 			}
 			public void mouseExited(MouseEvent arg0) {
 				openButton.setContentAreaFilled(false);
 				buttonTooltip.setText("");
+				tooltipDisplay.setText("");
 			}
 			public void mousePressed(MouseEvent arg0) {}
 			public void mouseReleased(MouseEvent arg0) {}
@@ -283,10 +296,12 @@ public class OpenblocksFrame extends JFrame
 				generateButton.setCursor(cursorHand);
 				generateButton.setContentAreaFilled(true); 
 				buttonTooltip.setText(uiMessageBundle.getString("ardublock.ui.upload"));
+				tooltipDisplay.setText(uiMessageBundle.getString("ardublock.ui.upload"));
 			}
 			public void mouseExited(MouseEvent arg0) {
 				generateButton.setContentAreaFilled(false);
 				buttonTooltip.setText("");
+				tooltipDisplay.setText("");
 			}
 			public void mousePressed(MouseEvent arg0) {}
 			public void mouseReleased(MouseEvent arg0) {}
@@ -316,15 +331,20 @@ public class OpenblocksFrame extends JFrame
 				serialMonitorButton.setCursor(cursorHand);
 				serialMonitorButton.setContentAreaFilled(true);
 				buttonTooltip.setText(uiMessageBundle.getString("ardublock.ui.serialMonitor"));
+				tooltipDisplay.setText(uiMessageBundle.getString("ardublock.ui.serialMonitor"));
 			}
 			public void mouseExited(MouseEvent arg0) {
 				serialMonitorButton.setContentAreaFilled(false);
 				buttonTooltip.setText("");
+				tooltipDisplay.setText("");
 			}
 			public void mousePressed(MouseEvent arg0) {}
 			public void mouseReleased(MouseEvent arg0) {}
 	
 		});
+		
+		
+		
 //		ardublock.ui.saveImage
 		JButton saveImageButton = new JButton(uiMessageBundle.getString("ardublock.ui.saveImage"));
 		saveImageButton.addActionListener(new ActionListener () {
@@ -353,12 +373,12 @@ public class OpenblocksFrame extends JFrame
 			}
 		});
 
+		final JLabel uiLevel = new JLabel(uiMessageBundle.getString("ardublock.ui.level.basic"));
 		
 		final JButton switchButton = new JButton();
-		switchButton.setIcon(new ImageIcon(this.getClass().getResource("/com/ardublock/icons/basicVersion.png")));
+		switchButton.setText(uiMessageBundle.getString("ardublock.ui.switch"));
 		switchButton.setContentAreaFilled(false); 
 		switchButton.setBackground(Color.LIGHT_GRAY);
-		switchButton.setPreferredSize( new Dimension(52, 52));
 		switchButton.setOpaque(false);
 		switchButton.setToolTipText(uiMessageBundle.getString("ardublock.ui.switch"));
 		switchButton.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -369,9 +389,11 @@ public class OpenblocksFrame extends JFrame
 				saveString = getArduBlockString();
 				switchArduBlockInteface();
 				if(theInterfaceVer == 0){
-					switchButton.setIcon(new ImageIcon(this.getClass().getResource("/com/ardublock/icons/basicVersion.png")));
+//					switchButton.setIcon(new ImageIcon(this.getClass().getResource("/com/ardublock/icons/basicVersion.png")));
+					uiLevel.setText(uiMessageBundle.getString("ardublock.ui.level.basic"));
 				}else{
-					switchButton.setIcon(new ImageIcon(this.getClass().getResource("/com/ardublock/icons/advancedVersion.png")));
+//					switchButton.setIcon(new ImageIcon(this.getClass().getResource("/com/ardublock/icons/advancedVersion.png")));
+					uiLevel.setText(uiMessageBundle.getString("ardublock.ui.level.adv"));
 				}
 				context.loadArduBlockString(saveString);
 				switchButton.setCursor(cursorDefault);
@@ -383,14 +405,14 @@ public class OpenblocksFrame extends JFrame
 			}
 			public void mouseExited(MouseEvent arg0) {
 				switchButton.setContentAreaFilled(false);
-				switchButton.setText("");
+//				switchButton.setText("");
 			}
 			public void mousePressed(MouseEvent arg0) {}
 			public void mouseReleased(MouseEvent arg0) {}
 	
 		});
 		
-		//serial list
+		//serial select list
         JPanel contentPane=new JPanel(); 
         contentPane.setLayout(new FlowLayout(FlowLayout.CENTER,5,5));  
         JLabel label=new JLabel(uiMessageBundle.getString("ardublock.ui.serial"));  
@@ -428,7 +450,7 @@ public class OpenblocksFrame extends JFrame
             }  
         });
 
-        //board list
+        //board select list
         JPanel boardListPanel=new JPanel(); 
         boardListPanel.setLayout(new FlowLayout(FlowLayout.CENTER,5,5));  
         JLabel boardListLabel=new JLabel(uiMessageBundle.getString("ardublock.ui.board"));  
@@ -466,41 +488,58 @@ public class OpenblocksFrame extends JFrame
 		buttonsLeft.add(openButton);
 		buttonsLeft.add(generateButton);
 		buttonsLeft.add(serialMonitorButton);
-		
+		buttonsLeft.add(tooltipDisplay);
 		buttonsRight.add(boadPortListPanel);
-		buttonsRight.add(switchButton);
 		
 		Box box=Box.createHorizontalBox();
 		box.add(buttonsLeft);
 		box.add(buttonsRight);
-		
 		box.add(Box.createHorizontalStrut(0));  
 		
-		JPanel bottomPanel = new JPanel();
-		JButton websiteButton = new JButton(uiMessageBundle.getString("ardublock.ui.website"));
-		websiteButton.addActionListener(new ActionListener () {
-			public void actionPerformed(ActionEvent e) {
-			    Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
-			    URL url;
-			    if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
-			        try {
-						url = new URL("http://ardublock.com");
-			            desktop.browse(url.toURI());
-			        } catch (Exception e1) {
-			            e1.printStackTrace();
-			        }
-			    }
-			}
-		});
+//		JButton websiteButton = new JButton(uiMessageBundle.getString("ardublock.ui.website"));
+//		websiteButton.addActionListener(new ActionListener () {
+//			public void actionPerformed(ActionEvent e) {
+//			    Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+//			    URL url;
+//			    if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+//			        try {
+//						url = new URL("http://ardublock.com");
+//			            desktop.browse(url.toURI());
+//			        } catch (Exception e1) {
+//			            e1.printStackTrace();
+//			        }
+//			    }
+//			}
+//		});
+		
+		
+//		!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		
 		JLabel versionLabel = new JLabel("v " + uiMessageBundle.getString("ardublock.ui.version"));
 		
-		bottomPanel.add(saveImageButton);
-//		bottomPanel.add(websiteButton);
-		bottomPanel.add(versionLabel);
-
+		Box bottomBox = Box.createHorizontalBox();
+		Box bottomBoxLeft = Box.createHorizontalBox();
+		JPanel bottomBoxCenter = new JPanel();
+		Box bottomBoxRight = Box.createHorizontalBox();
+		
+		bottomBox.add(Box.createHorizontalStrut(20)); 
+		bottomBoxLeft.add(Box.createHorizontalStrut(0));  
+		bottomBoxRight.add(Box.createHorizontalStrut(20));  
+		
+		bottomBoxLeft.add(switchButton);
+		bottomBoxCenter.add(uiLevel);
+		bottomBoxRight.add(versionLabel);
+		
+		bottomBox.add(bottomBoxLeft);
+		bottomBox.add(bottomBoxCenter);
+		bottomBox.add(bottomBoxRight);
+		
+		buttonsLeft.setLayout(new FlowLayout(FlowLayout.LEFT));
+		bottomBoxCenter.setLayout(new FlowLayout(FlowLayout.CENTER));
+		buttonsRight.setLayout(new FlowLayout(FlowLayout.RIGHT));
 		
 		this.add(box, BorderLayout.NORTH);
-		this.add(bottomPanel, BorderLayout.SOUTH);
+		this.add(bottomBox, BorderLayout.SOUTH);
 		this.add(workspace, BorderLayout.CENTER);
 		
 	}
