@@ -2088,7 +2088,7 @@
 	      </description>
 	      <BlockConnectors>
 	        <BlockConnector connector-type="string" connector-kind="socket" label="bc.variable">
-	          <DefaultArg genus-name="variable_String" label="STRING" />
+	          <DefaultArg genus-name="variable_String" label="String" />
 	        </BlockConnector>
 	        <BlockConnector connector-type="string" connector-kind="socket" label="bc.value">
 	          <DefaultArg genus-name="message" label="Edit message text" />
@@ -11841,9 +11841,9 @@
 				<BlockGenusMember>serial_write</BlockGenusMember>
 				<BlockGenusMember>serial_print</BlockGenusMember>
 				<BlockGenusMember>serial_println</BlockGenusMember>
-			<!--<BlockGenusMember>glue_sn</BlockGenusMember>
-				<BlockGenusMember>glue_sb</BlockGenusMember>
-			-->
+				<!-- <BlockGenusMember>glue_sn</BlockGenusMember>
+				<BlockGenusMember>glue_sb</BlockGenusMember> -->
+			
 				<BlockGenusMember>glue_poly</BlockGenusMember>
 				<!-- <BlockGenusMember>ir_setport</BlockGenusMember>
 				<BlockGenusMember>ir_getcode</BlockGenusMember> -->
@@ -11893,14 +11893,14 @@
 				<BlockGenusMember>bleshield_compare</BlockGenusMember>
 			</BlockDrawer>
 			-->
-			<BlockDrawer button-color="0 200 0" name="bd.especial" type="factory">
-				<!-- <BlockGenusMember>code_head</BlockGenusMember>
+			<!-- <BlockDrawer button-color="0 200 0" name="bd.especial" type="factory">
+				<BlockGenusMember>code_head</BlockGenusMember>
 				<BlockGenusMember>code_setup</BlockGenusMember>
-				<BlockGenusMember>code_loop</BlockGenusMember> -->
+				<BlockGenusMember>code_loop</BlockGenusMember>
 				<BlockGenusMember>DuinoEDU_code_head</BlockGenusMember>
 				<BlockGenusMember>DuinoEDU_code_setup</BlockGenusMember>
 				<BlockGenusMember>DuinoEDU_code_loop</BlockGenusMember>
-			</BlockDrawer>
+			</BlockDrawer> -->
 			<BlockDrawer button-color="13 152 164" name="bd.sensor" type="factory">
 				<BlockGenusMember>df_digital_push_button</BlockGenusMember>
 				<BlockGenusMember>df_digital_magnetic_sensor</BlockGenusMember>

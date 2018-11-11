@@ -2249,7 +2249,7 @@
 	      </description>
 	      <BlockConnectors>
 	        <BlockConnector connector-type="string" connector-kind="socket" label="bc.variable">
-	          <DefaultArg genus-name="variable_String" label="STRING" />
+	          <DefaultArg genus-name="variable_String" label="String" />
 	        </BlockConnector>
 	        <BlockConnector connector-type="string" connector-kind="socket" label="bc.value">
 	          <DefaultArg genus-name="message" label="Edit message text" />
@@ -11064,6 +11064,51 @@
 			</BlockConnectors>
 		</BlockGenus>
 <!-- joinin block -->
+		<BlockGenus name="mp3_player" kind="command" color="13 152 164" initlabel="bg.mp3_player">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
+					<DefaultArg genus-name="pinListDigital_D2" label="D2" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.mp3play">
+					<DefaultArg genus-name="number" label="1" />
+				</BlockConnector>
+				
+			</BlockConnectors>
+			<!-- <Images>
+				<Image>
+					<FileLocation>com/ardublock/block/dfrobot/sen0020.png</FileLocation>
+				</Image>
+			</Images> -->
+		</BlockGenus>
+		
+		
+		<BlockGenus name="color_sensor_setup" kind="command" color="13 152 164" initlabel="bg.color_sensor_setup">
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="#">
+					<DefaultArg genus-name="pinListDigital_D6" label="D6" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="S1#">
+					<DefaultArg genus-name="pinListDigital_D5" label="D5" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="S2#">
+					<DefaultArg genus-name="pinListDigital_D4" label="D4" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="S3#">
+					<DefaultArg genus-name="pinListDigital_D3" label="D3" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="OUT#">
+					<DefaultArg genus-name="pinListDigital_D2" label="D2" />
+				</BlockConnector>
+			<!-- 	<BlockConnector connector-type="number" connector-kind="socket" label="LED#">
+					<DefaultArg genus-name="pinListDigital_D7" label="D7" />
+				</BlockConnector> -->
+			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/dfrobot/sen0020.png</FileLocation>
+				</Image>
+			</Images>
+		</BlockGenus>
 		
 		<BlockGenus name="pinListColorSensor_Red" kind="data" color="200 0 0" initlabel="bg.pinListColorSensor_Red" editable-label="no">
 			<BlockConnectors>
@@ -12132,6 +12177,7 @@
 				<BlockGenusMember>df_romeo_motor</BlockGenusMember>
 				<BlockGenusMember>vibrationModule</BlockGenusMember>
 				<!-- <BlockGenusMember>df_relay</BlockGenusMember> -->
+				<BlockGenusMember>mp3_player</BlockGenusMember>
 			</BlockDrawer>
 			
 			<BlockDrawer button-color="152 29 155" name="bd.monitor" type="factory">
