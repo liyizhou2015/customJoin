@@ -5688,13 +5688,13 @@
 			</BlockConnectors>
 		</BlockGenus>
 		
-		<BlockGenus name="pinInterrupt_RISING" kind="data" color="0 200 0" initlabel="bg.pinInterrupt_RISING" editable-label="no">
+		<BlockGenus name="pinInterrupt_RISING" kind="data" color="200 0 0" initlabel="bg.pinInterrupt_RISING" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug"/>
 			</BlockConnectors>
 		</BlockGenus>
 		
-		<BlockGenus name="pinInterrupt_FALLING" kind="data" color="0 200 0" initlabel="bg.pinInterrupt_FALLING" editable-label="no">
+		<BlockGenus name="pinInterrupt_FALLING" kind="data" color="0 0 200" initlabel="bg.pinInterrupt_FALLING" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug"/>
 			</BlockConnectors>

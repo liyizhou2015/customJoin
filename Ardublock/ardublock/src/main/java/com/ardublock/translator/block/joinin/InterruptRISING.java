@@ -15,7 +15,7 @@ public class InterruptRISING extends TranslatorBlock
 
 		@Override
 		public String toCode() throws SocketNullException {
-			return codePrefix + "FALLING" + codeSuffix;
+			return codePrefix + "RISING" + codeSuffix;
 		}
 		
 	}
