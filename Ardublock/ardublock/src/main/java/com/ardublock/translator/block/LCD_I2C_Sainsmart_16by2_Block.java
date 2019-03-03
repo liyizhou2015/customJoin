@@ -33,8 +33,14 @@ public class LCD_I2C_Sainsmart_16by2_Block extends TranslatorBlock {
 		tb = this.getRequiredTranslatorBlockAtSocket(2);
 		String wordIndex = tb.toCode();
 		ret += "lcd_I2C_" + I2C_addr + ".setCursor(" + wordIndex + "-1, " + lineIndex + "-1);\n";
-		tb = this.getRequiredTranslatorBlockAtSocket(0);		
-		ret += "lcd_I2C_" + I2C_addr + ".print(" + tb.toCode() + ");\n";
+		
+		tb = this.getRequiredTranslatorBlockAtSocket(0,"lcd_I2C_" + I2C_addr + ".print(",");\n");		
+		String retString ="";
+		if (tb != null) {
+			retString = tb.toCode();
+		}
+		ret += retString;
+//		ret += "lcd_I2C_" + I2C_addr + ".print(" + tb.toCode() + ");\n";
 		
 		return ret;
 		

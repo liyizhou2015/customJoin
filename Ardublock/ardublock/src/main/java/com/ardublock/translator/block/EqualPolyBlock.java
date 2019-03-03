@@ -16,11 +16,11 @@ public class EqualPolyBlock extends TranslatorBlock
 	{
 		String ret = "( ( ";
 		TranslatorBlock tb = this.getRequiredTranslatorBlockAtSocket(0);
-		ret = ret + tb.toCode().replace("\"","\"");
+		ret = ret + "" +tb.toCode().replace("\"","\"");
 		ret = ret + " ) == (";
 		tb = this.getRequiredTranslatorBlockAtSocket(1);
 		ret = ret + tb.toCode().replace("\"","\"");
 		ret = ret + ") )";
-		return codePrefix + ret + codeSuffix;
+		return codePrefix + ret.replace("\"\"","") + codeSuffix;
 	}
 }

@@ -1939,7 +1939,7 @@
 				<text>string message</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="plug" />
+				<BlockConnector connector-type="string" connector-kind="plug" position-type="mirror"/>
 			</BlockConnectors>
 		</BlockGenus>
 
@@ -2103,7 +2103,8 @@
 	        </text>
 	      </description>
 	      <BlockConnectors>
-	        <BlockConnector connector-type="string" connector-kind="plug" position-type="mirror" />
+	         <BlockConnector connector-type="string" connector-kind="plug" position-type="mirror" />
+	      	 
 	      </BlockConnectors>
 	    </BlockGenus>
 		<!--****************** Utilities *************** -->		
@@ -10904,7 +10905,52 @@
 			</BlockConnectors>
 		</BlockGenus>
 <!-- joinin block -->
+		<BlockGenus name="NeoPixel8LEDSetup" kind="command" color="152 29 155" initlabel="bg.NeoPixel8LEDSetup">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="socket" label="bc.name">
+					<DefaultArg genus-name="message" label="neoPixel" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
+					<DefaultArg genus-name="pinListDigital_D2" label="D2" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.brightness">
+					<DefaultArg genus-name="number" label="150" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pixels_number">
+					<DefaultArg genus-name="number" label="8" />
+				</BlockConnector>
+			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/dfrobot/neopixel8ledxs.png</FileLocation>
+				</Image>
+			</Images>
+		</BlockGenus>
 		
+		<BlockGenus name="NeoPixel8LED" kind="command" color="152 29 155" initlabel="bg.NeoPixel8LED">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="socket" label="bc.name">
+					<DefaultArg genus-name="message" label="neoPixel" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.red2">
+					<DefaultArg genus-name="number" label="0" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.green2">
+					<DefaultArg genus-name="number" label="0" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.blue2">
+					<DefaultArg genus-name="number" label="0" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pixel_index">
+					<DefaultArg genus-name="number" label="0" />
+				</BlockConnector>
+			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/dfrobot/neopixel8ledxs.png</FileLocation>
+				</Image>
+			</Images>
+		</BlockGenus>
 		<BlockGenus name="pinListColorSensor_Red" kind="data" color="200 0 0" initlabel="bg.pinListColorSensor_Red" editable-label="no">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug"/>
@@ -11783,7 +11829,7 @@
 				<BlockGenusMember>not_equal_digital</BlockGenusMember> -->
 				<BlockGenusMember>equal_poly</BlockGenusMember>
 				<!-- <BlockGenusMember>not_equal_poly</BlockGenusMember> -->
-				<BlockGenusMember>equal_string</BlockGenusMember>
+				<!-- <BlockGenusMember>equal_string</BlockGenusMember> -->
 				<!-- <BlockGenusMember>not_equal_string</BlockGenusMember> -->
 				
 			<!-- 	<BlockGenusMember>string_empty</BlockGenusMember> -->
@@ -11829,13 +11875,13 @@
 				<BlockGenusMember>setter_variable_char</BlockGenusMember>
 				<BlockGenusMember>variable_poly</BlockGenusMember>
 				<BlockGenusMember>char</BlockGenusMember>
-				<BlockGenusMember>setter_variable_String</BlockGenusMember>
+				<!-- <BlockGenusMember>setter_variable_String</BlockGenusMember>
 				<BlockGenusMember>variable_String</BlockGenusMember>
-				<BlockGenusMember>message</BlockGenusMember>
-				<BlockGenusMember>create_variable_vector</BlockGenusMember>
+				<BlockGenusMember>message</BlockGenusMember> -->
+				<!-- <BlockGenusMember>create_variable_vector</BlockGenusMember>
 				<BlockGenusMember>variable_fake</BlockGenusMember>
 				<BlockGenusMember>variable_vector</BlockGenusMember>
-				<BlockGenusMember>setter_variable_vector</BlockGenusMember>
+				<BlockGenusMember>setter_variable_vector</BlockGenusMember> -->
 			</BlockDrawer>
 			<BlockDrawer button-color="255 255 255" name="bd.communication" type="factory">
 				<BlockGenusMember>serial_write</BlockGenusMember>
@@ -11853,7 +11899,7 @@
 				<BlockGenusMember>serial_available</BlockGenusMember>
 				<!-- <BlockGenusMember>serial_available2</BlockGenusMember> -->
 				<BlockGenusMember>serial_read</BlockGenusMember>
-				<BlockGenusMember>serial_read_string</BlockGenusMember>
+				<!-- <BlockGenusMember>serial_read_string</BlockGenusMember> -->
 				<BlockGenusMember>serial_parseInt</BlockGenusMember>
 				 <!-- <BlockGenusMember>DuinoEDU_Guino_Read</BlockGenusMember>
 				<BlockGenusMember>DuinoEDU_Guino_Slider</BlockGenusMember>
@@ -11982,6 +12028,9 @@
 				<BlockGenusMember>df_led</BlockGenusMember>
 				<BlockGenusMember>df_led_pwm</BlockGenusMember>
 				<BlockGenusMember>digital_tube_tm1637</BlockGenusMember>
+				
+				<BlockGenusMember>NeoPixel8LEDSetup</BlockGenusMember>
+				<BlockGenusMember>NeoPixel8LED</BlockGenusMember>
 				
 				<BlockGenusMember>iic_addr_scan</BlockGenusMember>
 			<!-- 	<BlockGenusMember>panda_i1</BlockGenusMember>

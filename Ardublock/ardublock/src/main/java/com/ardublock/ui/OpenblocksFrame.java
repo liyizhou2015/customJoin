@@ -51,7 +51,7 @@ import javax.swing.event.PopupMenuListener;
 import javax.swing.event.PopupMenuEvent;
 
 
-import com.ardublock.ArduBlockToolJOIN;
+import com.ardublock.ArduBlockTool;
 import com.ardublock.core.Context;
 import com.ardublock.ui.listener.ArdublockWorkspaceListener;
 import com.ardublock.ui.listener.GenerateCodeButtonListener;
@@ -631,7 +631,6 @@ public class OpenblocksFrame extends JFrame
 		}
 	}
 
-	
 	public void doSaveAsArduBlockFile()
 	{
 		if (context.isWorkspaceEmpty())
@@ -773,8 +772,7 @@ public class OpenblocksFrame extends JFrame
 		}
 			
 	}
-	
-	
+
 	private File checkFileSuffix(File saveFile)
 	{
 		String filePath = saveFile.getAbsolutePath();

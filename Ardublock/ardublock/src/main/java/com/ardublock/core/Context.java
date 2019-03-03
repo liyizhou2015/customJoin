@@ -53,7 +53,7 @@ public class Context
 	private String arduinoVersionString = ARDUINO_VERSION_UNKNOWN;
 	private OsType osType; 
 
-	final public static String APP_NAME = "ArduBlock_JOIN";
+	final public static String APP_NAME = "ArduBlock";
 	
 	private Editor editor;
 	private Preferences pre;

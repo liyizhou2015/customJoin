@@ -30,17 +30,17 @@ import com.ardublock.core.Context;
 import com.ardublock.ui.ArduBlockToolFrame;
 import com.ardublock.ui.listener.OpenblocksFrameListener;
 
-public class ArduBlockToolJOIN implements Tool, OpenblocksFrameListener
+public class ArduBlockTool implements Tool, OpenblocksFrameListener
 {
 	static Editor editor;
 	static ArduBlockToolFrame openblocksFrame;
 	
 	public void init(Editor editor) {
-		if (ArduBlockToolJOIN.editor == null )
+		if (ArduBlockTool.editor == null )
 		{
-			ArduBlockToolJOIN.editor = editor;
-			ArduBlockToolJOIN.openblocksFrame = new ArduBlockToolFrame();
-			ArduBlockToolJOIN.openblocksFrame.addListener(this);
+			ArduBlockTool.editor = editor;
+			ArduBlockTool.openblocksFrame = new ArduBlockToolFrame();
+			ArduBlockTool.openblocksFrame.addListener(this);
 			Context context = Context.getContext();
 			String arduinoVersion = this.getArduinoVersion();
 			context.setInArduino(true);
@@ -51,17 +51,17 @@ public class ArduBlockToolJOIN implements Tool, OpenblocksFrameListener
 			// Don't just "close" Ardublock, see if there's something to save first.
 			// Note to self: Code here only affects behaviour when we're an Arduino Tool,
 			// not when run directly - See Main.java for that.
-			//ArduBlockToolJOIN.openblocksFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+			//ArduBlockTool.openblocksFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 			
 			
 		
 			
 			
-			ArduBlockToolJOIN.openblocksFrame.addWindowListener( new WindowAdapter()
+			ArduBlockTool.openblocksFrame.addWindowListener( new WindowAdapter()
 			{
 			    public void windowClosing(WindowEvent e)
 			    {		        
-			    	ArduBlockToolJOIN.openblocksFrame.doCloseArduBlockFile();		        
+			    	ArduBlockTool.openblocksFrame.doCloseArduBlockFile();		        
 			    }
 			});
 			
@@ -74,22 +74,22 @@ public class ArduBlockToolJOIN implements Tool, OpenblocksFrameListener
 		try {
 			
 
-			Toolkit toolkit = Toolkit.getDefaultToolkit();// 获得窗体工具包
-	        Dimension screenSize = toolkit.getScreenSize();// 获取屏幕大小
+			Toolkit toolkit = Toolkit.getDefaultToolkit();// 鑾峰緱绐椾綋宸ュ叿鍖�
+	        Dimension screenSize = toolkit.getScreenSize();// 鑾峰彇灞忓箷澶у皬
 	     
-	        int width = (int) (screenSize.width * 35 / 100);// 计算窗体新宽度
+	        int width = (int) (screenSize.width * 35 / 100);// 璁＄畻绐椾綋鏂板搴�
 	        
 	        GraphicsEnvironment graphicsEnvironment=GraphicsEnvironment.getLocalGraphicsEnvironment();
 	        
 	        Rectangle maximumWindowBounds=graphicsEnvironment.getMaximumWindowBounds();
 	        
-	        ArduBlockToolJOIN.editor.setBounds(screenSize.width*65/100,0,width,maximumWindowBounds.height);
+	        ArduBlockTool.editor.setBounds(screenSize.width*65/100,0,width,maximumWindowBounds.height);
 			
-	        ArduBlockToolJOIN.editor.toFront();
+	        ArduBlockTool.editor.toFront();
 	        
-			ArduBlockToolJOIN.openblocksFrame.setVisible(true);
-			ArduBlockToolJOIN.openblocksFrame.toFront();
-			ArduBlockToolJOIN.openblocksFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+			ArduBlockTool.openblocksFrame.setVisible(true);
+			ArduBlockTool.openblocksFrame.toFront();
+			ArduBlockTool.openblocksFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 			
 			
 			
@@ -127,26 +127,26 @@ public class ArduBlockToolJOIN implements Tool, OpenblocksFrameListener
 //			System.out.println("generate ing");
 			
 			// pre Arduino 1.6.12
-			Class ed = ArduBlockToolJOIN.editor.getClass();
+			Class ed = ArduBlockTool.editor.getClass();
 			Class[] cArg = new Class[1];
 			
 			cArg[0] = String.class;
 
 			method = ed.getMethod("setText", cArg);
 			
-			method.invoke(ArduBlockToolJOIN.editor, source);
+			method.invoke(ArduBlockTool.editor, source);
 		
 		}
 		catch (NoSuchMethodException e) {
-			ArduBlockToolJOIN.editor.getCurrentTab().setText(source);
+			ArduBlockTool.editor.getCurrentTab().setText(source);
 		} catch (IllegalAccessException e) {
-			ArduBlockToolJOIN.editor.getCurrentTab().setText(source);
+			ArduBlockTool.editor.getCurrentTab().setText(source);
 		} catch (SecurityException e) {
-			ArduBlockToolJOIN.editor.getCurrentTab().setText(source);
+			ArduBlockTool.editor.getCurrentTab().setText(source);
 		} catch (InvocationTargetException e) {
-			ArduBlockToolJOIN.editor.getCurrentTab().setText(source);
+			ArduBlockTool.editor.getCurrentTab().setText(source);
 		}
-		ArduBlockToolJOIN.editor.handleExport(false);
+		ArduBlockTool.editor.handleExport(false);
 	}
 	
 	private String getArduinoVersion()

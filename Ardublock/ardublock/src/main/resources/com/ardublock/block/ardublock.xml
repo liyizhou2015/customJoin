@@ -11064,7 +11064,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 <!-- joinin block -->
-		<BlockGenus name="mp3_player" kind="command" color="13 152 164" initlabel="bg.mp3_player">
+		<!-- <BlockGenus name="mp3_player" kind="command" color="13 152 164" initlabel="bg.mp3_player">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="pinListDigital_D2" label="D2" />
@@ -11074,14 +11074,61 @@
 				</BlockConnector>
 				
 			</BlockConnectors>
-			<!-- <Images>
+			<Images>
 				<Image>
 					<FileLocation>com/ardublock/block/dfrobot/sen0020.png</FileLocation>
 				</Image>
-			</Images> -->
+			</Images>
+		</BlockGenus> -->
+		<!-- NeoPixel8LED -->
+		
+		
+		<BlockGenus name="NeoPixel8LEDSetup" kind="command" color="152 29 155" initlabel="bg.NeoPixel8LEDSetup">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="socket" label="bc.name">
+					<DefaultArg genus-name="message" label="neoPixel" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
+					<DefaultArg genus-name="pinListDigital_D2" label="D2" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.brightness">
+					<DefaultArg genus-name="number" label="150" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pixels_number">
+					<DefaultArg genus-name="number" label="8" />
+				</BlockConnector>
+			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/dfrobot/neopixel8ledxs.png</FileLocation>
+				</Image>
+			</Images>
 		</BlockGenus>
 		
-		
+		<BlockGenus name="NeoPixel8LED" kind="command" color="152 29 155" initlabel="bg.NeoPixel8LED">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="socket" label="bc.name">
+					<DefaultArg genus-name="message" label="neoPixel" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.red2">
+					<DefaultArg genus-name="number" label="0" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.green2">
+					<DefaultArg genus-name="number" label="0" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.blue2">
+					<DefaultArg genus-name="number" label="0" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pixel_index">
+					<DefaultArg genus-name="number" label="0" />
+				</BlockConnector>
+			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/dfrobot/neopixel8ledxs.png</FileLocation>
+				</Image>
+			</Images>
+		</BlockGenus>
 		<BlockGenus name="color_sensor_setup" kind="command" color="13 152 164" initlabel="bg.color_sensor_setup">
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="#">
@@ -12177,7 +12224,7 @@
 				<BlockGenusMember>df_romeo_motor</BlockGenusMember>
 				<BlockGenusMember>vibrationModule</BlockGenusMember>
 				<!-- <BlockGenusMember>df_relay</BlockGenusMember> -->
-				<BlockGenusMember>mp3_player</BlockGenusMember>
+				<!-- <BlockGenusMember>mp3_player</BlockGenusMember> -->
 			</BlockDrawer>
 			
 			<BlockDrawer button-color="152 29 155" name="bd.monitor" type="factory">
