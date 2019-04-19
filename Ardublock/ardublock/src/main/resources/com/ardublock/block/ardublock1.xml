@@ -1840,14 +1840,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 		
-		<BlockGenus name="variable_string" kind="data" color="32 102 204" initlabel="bg.variable_string" editable-label="yes">
-			<description>
-				<text>string message</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="plug" />
-			</BlockConnectors>
-		</BlockGenus>
+		
 
 		<BlockGenus name="setter_variable_number" kind="command" color="232 156 149" initlabel="bg.setter_variable_number">
 			<description>
@@ -2001,8 +1994,9 @@
 	        </BlockConnector>
 	      </BlockConnectors>
 	    </BlockGenus>
-				
-	    <BlockGenus name="variable_String" kind="data" initlabel="bg.variable_String" editable-label="yes" is-label-value="yes" color="245 245 245">
+			
+			
+	    <BlockGenus name="variable_String" kind="data" initlabel="bg.variable_String" editable-label="yes" is-label-value="yes" color="175 175 175">
 	      <description>
 	        <text>
 	          Variable String
@@ -2075,10 +2069,10 @@
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" label="cm" />
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.trig">
-					<DefaultArg genus-name="pinListDigital_D11" label="D11" />
+					<DefaultArg genus-name="pinListDigital_D11" label="D7" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.echo">
-					<DefaultArg genus-name="pinListDigital_D12" label="D12" />
+					<DefaultArg genus-name="pinListDigital_D12" label="D8" />
 				</BlockConnector>
 			</BlockConnectors>
 			<Images>
@@ -5644,7 +5638,7 @@
 			
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.CLK">
-					<DefaultArg genus-name="pinListDigital_D3" label="D3" />
+					<DefaultArg genus-name="pinListDigital_D3" label="D4" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.DIO">
 					<DefaultArg genus-name="pinListDigital_D2" label="D2" />
@@ -6196,9 +6190,9 @@
 				<BlockGenusMember>setter_variable_char</BlockGenusMember>
 				<BlockGenusMember>variable_poly</BlockGenusMember>
 				<BlockGenusMember>char</BlockGenusMember>
-				<!-- <BlockGenusMember>setter_variable_String</BlockGenusMember>
+				<BlockGenusMember>setter_variable_String</BlockGenusMember>
 				<BlockGenusMember>variable_String</BlockGenusMember>
-				<BlockGenusMember>message</BlockGenusMember> -->
+				<BlockGenusMember>message</BlockGenusMember>
 				<!-- <BlockGenusMember>create_variable_vector</BlockGenusMember>
 				<BlockGenusMember>variable_fake</BlockGenusMember>
 				<BlockGenusMember>variable_vector</BlockGenusMember>
@@ -6212,6 +6206,8 @@
 				<BlockGenusMember>glue_sb</BlockGenusMember> -->
 			
 				<BlockGenusMember>glue_poly</BlockGenusMember>
+				<!-- <BlockGenusMember>glue_sn</BlockGenusMember>
+				<BlockGenusMember>glue_sb</BlockGenusMember> -->
 				<!-- <BlockGenusMember>ir_setport</BlockGenusMember>
 				<BlockGenusMember>ir_getcode</BlockGenusMember> -->
 				<!-- <BlockGenusMember>wire_write</BlockGenusMember>
@@ -6489,75 +6485,7 @@
 				<BlockGenusMember>seeed_mp3_sensor</BlockGenusMember>
 				<BlockGenusMember>seeed_o2_sensor</BlockGenusMember>
 			</BlockDrawer> -->
-			<!-- <BlockDrawer button-color="20 206 20" name="bd.DuinoEDU">
-				<BlockGenusMember>DDRA</BlockGenusMember>
-				<BlockGenusMember>PORTA</BlockGenusMember>
-				<BlockGenusMember>PORT_FIX</BlockGenusMember>
-				<BlockGenusMember>PINA</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Led</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Servo_Plus</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Ultrasonic</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_LCD_I2C_RGB2</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_LCD_I2C_Backlight</BlockGenusMember>	
-				<BlockGenusMember>DuinoEDU_LCD_I2C_RGB_Clear</BlockGenusMember>	
-				<BlockGenusMember>DuinoEDU_infrared</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_infrared_compare</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_temp</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_humiPro</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Barometer_Pression</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Led_Bar</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Oled_I2C</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Oled_Clear</BlockGenusMember>	
-				<BlockGenusMember>DuinoEDU_Keypad_12_Button</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Keypad_Post</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Keypad_Pwd</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Digital_Tube</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Digital_Tube_Ecrire</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Display_Digital_Tube</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Digital_Clear</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Driver_I2C_Speed_A_Motor</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Driver_I2C_Forward</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Driver_I2C_Stop</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_shildbot_Speed_Motor</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_shildbot_Forward</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_shildbot_Stop</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_shildbot_Read</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Motor_shield_Speed_Motor</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Motor_shield_Forward</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Motor_shield_Stop</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Motor_shield_Drift_Motor</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Aix_Acc_mesurerX</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Partie_Emetteur</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Partie_Recepteur</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Rfid_Write</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Rfid_Test</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Rfid_Read</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Rfid_Clear</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_neopixel_init</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_neopixel_pixel_colorRGB</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_neopixel_show</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_neopixel_Brightness</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_neopixel_Clear</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_stepper_step</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_stepper_setSpeed</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_matrice_write</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_matrice_Brightness</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_matrice_clear</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_MP3_Player</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_MP3_Pause</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_RTC_Mem</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_RTC_Day</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Gps_Init</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Gps_Synchronise</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Gps_LatitudeNbr</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Gps_LatitudeGoogleMaps</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Gps_Day</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Gps_Speed</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Mouse_Xmove</BlockGenusMember>
-				<BlockGenusMember>keyboard_post</BlockGenusMember>
-				<BlockGenusMember>keyboard_compare</BlockGenusMember>
-				<BlockGenusMember>DuinoEDU_Nunchuck_BoutonC</BlockGenusMember>
-			</BlockDrawer> -->
+			
 			<!-- <BlockDrawer button-color="20 206 20" name="bd.Esplora">
 			<BlockGenusMember>Esplora_Led</BlockGenusMember>
 			<BlockGenusMember>Esplora_tone</BlockGenusMember>

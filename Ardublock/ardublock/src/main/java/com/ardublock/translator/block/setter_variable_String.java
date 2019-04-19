@@ -25,7 +25,7 @@ public class setter_variable_String extends TranslatorBlock
 		}
 		
 		String ret = "";
-		String buffer = "buff"+String.valueOf((int)(Math.random()*100));
+		String buffer = "buffer"+String.valueOf((int)(Math.random()*1000));
 		ret += "String " + buffer + " = \"\";\n";
 		ret += tb.toCode();
 		tb = this.getRequiredTranslatorBlockAtSocket(1,"+","");
