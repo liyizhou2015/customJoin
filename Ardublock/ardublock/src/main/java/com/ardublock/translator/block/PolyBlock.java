@@ -12,7 +12,7 @@ public class PolyBlock extends TranslatorBlock
 	@Override
 	public String toCode()
 	{
-	    return codePrefix + "\""+label+ "\"" + codeSuffix;
+	    return codePrefix + "\'"+label+ "\'" + codeSuffix;
 	}
 
 }

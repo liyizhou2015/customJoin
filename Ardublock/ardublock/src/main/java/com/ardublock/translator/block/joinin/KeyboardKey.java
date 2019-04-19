@@ -5,17 +5,17 @@ import com.ardublock.translator.block.TranslatorBlock;
 import com.ardublock.translator.block.exception.SocketNullException;
 import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
-public class KeyLeftCtrl extends TranslatorBlock
+public class KeyboardKey extends TranslatorBlock
 	{
 
-		public KeyLeftCtrl(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
+		public KeyboardKey(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 		{
 			super(blockId, translator, codePrefix, codeSuffix, label);
 		}
-
-		@Override
-		public String toCode() throws SocketNullException {
-			return codePrefix + "KEY_LEFT_CTRL" + codeSuffix;
-		}
 		
+		@Override
+		public String toCode()
+		{
+		    return codePrefix + "KEY_"+label + codeSuffix;
+		}
 	}

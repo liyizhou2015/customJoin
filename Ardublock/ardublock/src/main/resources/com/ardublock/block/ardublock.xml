@@ -3859,40 +3859,263 @@
 		</BlockGenus> 
 		
 		<!-- ==================================== keyboard ==========================================================-->
+		<!-- ======================================= key ============================================= -->
 		
-		<BlockGenus name="keyLeftCtrl" kind="data" color="214 169 54" initlabel="bg.keyLeftCtrl" editable-label="no">
-			<!-- <description>
-				<text>
-					key left control
-				</text>
-			</description> -->
+		<BlockGenus name="keyLeftCtrl" kind="data" color="170 170 170" initlabel="bg.keyLeftCtrl" editable-label="no">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"  />
+				<BlockConnector connector-type="string" connector-kind="plug"  />
 			</BlockConnectors>
 		</BlockGenus>
 		
-		<BlockGenus name="keyLeftShift" kind="data" color="214 169 54" initlabel="bg.keyLeftShift" editable-label="no">
+		<BlockGenus name="keyLeftShift" kind="data" color="170 170 170" initlabel="bg.keyLeftShift" editable-label="no">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="plug"  />
+				<BlockConnector connector-type="string" connector-kind="plug"  />
 			</BlockConnectors>
 		</BlockGenus>
 		
-		<BlockGenus name="keyboardPrint" kind="command" color="205 133 63" initlabel="bg.keyboardPrint">
+		<BlockGenus name="keyLeftAlt" kind="data" color="170 170 170" initlabel="bg.keyLeftAlt" editable-label="no">
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.keyboardKey">
-					<DefaultArg genus-name="keyLeftShift" label="KEY_LEFT_SHIFT" />
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyLeftGui" kind="data" color="170 170 170" initlabel="bg.keyLeftGui" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyRightCtrl" kind="data" color="170 170 170" initlabel="bg.keyRightCtrl" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyRightShift" kind="data" color="170 170 170" initlabel="bg.keyRightShift" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyRightAlt" kind="data" color="170 170 170" initlabel="bg.keyRightAlt" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyRightGui" kind="data" color="170 170 170" initlabel="bg.keyRightGui" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyUpArrow" kind="data" color="170 170 170" initlabel="bg.keyUpArrow" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyDownArrow" kind="data" color="170 170 170" initlabel="bg.keyDownArrow" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyLeftArrow" kind="data" color="170 170 170" initlabel="bg.keyLeftArrow" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyRightArrow" kind="data" color="170 170 170" initlabel="bg.keyRightArrow" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		
+		<BlockGenus name="keyBackspace" kind="data" color="170 170 170" initlabel="bg.keyBackspace" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyTab" kind="data" color="170 170 170" initlabel="bg.keyTab9p" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyReturn" kind="data" color="170 170 170" initlabel="bg.keyReturn" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyEsc" kind="data" color="170 170 170" initlabel="bg.keyEsc" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyInsert" kind="data" color="170 170 170" initlabel="bg.keyInsert" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyDelete" kind="data" color="170 170 170" initlabel="bg.keyDelete" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyPageUp" kind="data" color="170 170 170" initlabel="bg.keyPageUp" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyPageDown" kind="data" color="170 170 170" initlabel="bg.keyPageDown" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyHome" kind="data" color="170 170 170" initlabel="bg.keyHome" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyEnd" kind="data" color="170 170 170" initlabel="bg.keyEnd" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyCapsLock" kind="data" color="170 170 170" initlabel="bg.keyCapsLock" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyF1" kind="data" color="170 170 170" initlabel="bg.keyF1" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyF2" kind="data" color="170 170 170" initlabel="bg.keyF2" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyF3" kind="data" color="170 170 170" initlabel="bg.keyF3" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyF4" kind="data" color="170 170 170" initlabel="bg.keyF4" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyF5" kind="data" color="170 170 170" initlabel="bg.keyF5" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyF6" kind="data" color="170 170 170" initlabel="bg.keyF6" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyF7" kind="data" color="170 170 170" initlabel="bg.keyF7" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyF8" kind="data" color="170 170 170" initlabel="bg.keyF8" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyF9" kind="data" color="170 170 170" initlabel="bg.keyF9" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyF10" kind="data" color="170 170 170" initlabel="bg.keyF10" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyF11" kind="data" color="170 170 170" initlabel="bg.keyF11" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="keyF12" kind="data" color="170 170 170" initlabel="bg.keyF12" editable-label="no">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug"  />
+			</BlockConnectors>
+		</BlockGenus>
+		<!-- ======================================= key end ============================================= -->
+		
+		<BlockGenus name="keyboardPrint" kind="command" color="100 100 100"  initlabel="bg.keyboardPrint">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="socket" label="bc.keyboardKey">
+					<DefaultArg genus-name="message" label="x" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
 		
-		<BlockGenus name="keyboardBegin" kind="command" color="205 133 63" initlabel="bg.keyboardBegin">
+		<BlockGenus name="keyboardPrintln" kind="command" color="100 100 100"  initlabel="bg.keyboardPrintln">
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="socket" label="bc.keyboardKey">
+					<DefaultArg genus-name="message" label="x" />
+				</BlockConnector>
+			</BlockConnectors>
 		</BlockGenus>
 		
-		<BlockGenus name="keyboardEnd" kind="command" color="205 133 63" initlabel="bg.keyboardEnd">
+		<BlockGenus name="keyboardPress" kind="command" color="100 100 100"  initlabel="bg.keyboardPress">
+			<BlockConnectors>
+				<BlockConnector connector-type="poly" connector-kind="socket" label="bc.keyboardKey">
+					<DefaultArg genus-name="char" label="x" />
+				</BlockConnector>
+			</BlockConnectors>
 		</BlockGenus>
 		
-		<BlockGenus name="keyboardReleaseAll" kind="command" color="205 133 63" initlabel="bg.keyboardReleaseAll">
+		
+		<BlockGenus name="keyboardRelease" kind="command" color="100 100 100"  initlabel="bg.keyboardRelease">
+			<BlockConnectors>
+				<BlockConnector connector-type="poly" connector-kind="socket" label="bc.keyboardKey">
+					<DefaultArg genus-name="char" label="x" />
+				</BlockConnector>
+			</BlockConnectors>
 		</BlockGenus>
+		
+		<BlockGenus name="keyboardBegin" kind="command" color="100 100 100"  initlabel="bg.keyboardBegin">
+		</BlockGenus>
+		
+		<BlockGenus name="keyboardEnd" kind="command" color="100 100 100"  initlabel="bg.keyboardEnd">
+		</BlockGenus>
+		
+		<BlockGenus name="keyboardReleaseAll" kind="command" color="100 100 100"  initlabel="bg.keyboardReleaseAll">
+		</BlockGenus>
+		
+		<!-- ==================================== keyboard end ==========================================================-->
 		
 	</BlockGenuses>
 	
@@ -4155,8 +4378,48 @@
 			<FamilyMember>pinInterrupt_CHANGE</FamilyMember>
 		</BlockFamily>
 		<BlockFamily>
+			
 			<FamilyMember>keyLeftCtrl</FamilyMember>
 			<FamilyMember>keyLeftShift</FamilyMember>
+			<FamilyMember>keyLeftAlt</FamilyMember>
+			<FamilyMember>keyLeftGui</FamilyMember>
+			
+			<FamilyMember>keyRightCtrl</FamilyMember>
+			<FamilyMember>keyRightShift</FamilyMember>
+			<FamilyMember>keyRightAlt</FamilyMember>
+			<FamilyMember>keyRightGui</FamilyMember>
+			
+			<FamilyMember>keyUpArrow</FamilyMember>
+			<FamilyMember>keyDownArrow</FamilyMember>
+			<FamilyMember>keyLeftArrow</FamilyMember>
+			<FamilyMember>keyRightArrow</FamilyMember>
+			
+			<FamilyMember>keyBackspace</FamilyMember>
+			<FamilyMember>keyTab</FamilyMember>
+			<FamilyMember>keyReturn</FamilyMember>
+			<FamilyMember>keyEsc</FamilyMember>
+			<FamilyMember>keyInsert</FamilyMember>
+			<FamilyMember>keyDelete</FamilyMember>
+			
+			<FamilyMember>keyPageUp</FamilyMember>
+			<FamilyMember>keyPageDown</FamilyMember>
+			<FamilyMember>keyHome</FamilyMember>
+			<FamilyMember>keyEnd</FamilyMember>
+			<FamilyMember>keyCapsLock</FamilyMember>
+			
+			<FamilyMember>keyF1</FamilyMember>
+			<FamilyMember>keyF2</FamilyMember>
+			<FamilyMember>keyF3</FamilyMember>
+			<FamilyMember>keyF4</FamilyMember>
+			<FamilyMember>keyF5</FamilyMember>
+			<FamilyMember>keyF6</FamilyMember>
+			<FamilyMember>keyF7</FamilyMember>
+			<FamilyMember>keyF8</FamilyMember>
+			<FamilyMember>keyF9</FamilyMember>
+			<FamilyMember>keyF10</FamilyMember>
+			<FamilyMember>keyF11</FamilyMember>
+			<FamilyMember>keyF12</FamilyMember>
+			
 		</BlockFamily>
 	</BlockFamilies>
 
@@ -4421,13 +4684,16 @@
 				<BlockGenusMember>LCD_command_clear</BlockGenusMember> -->
 			</BlockDrawer>
 			
-			<BlockDrawer button-color="152 29 155" name="bd.keyboard" type="factory">
+			<!-- <BlockDrawer button-color="100 100 100" name="bd.keyboard" type="factory">
 					<BlockGenusMember>keyLeftCtrl</BlockGenusMember>
 					<BlockGenusMember>keyboardBegin</BlockGenusMember>
 					<BlockGenusMember>keyboardPrint</BlockGenusMember>
+					<BlockGenusMember>keyboardPrintln</BlockGenusMember>
+					<BlockGenusMember>keyboardPress</BlockGenusMember>
+					<BlockGenusMember>keyboardRelease</BlockGenusMember>
 					<BlockGenusMember>keyboardReleaseAll</BlockGenusMember>
 					<BlockGenusMember>keyboardEnd</BlockGenusMember>
-			</BlockDrawer>	
+			</BlockDrawer>	 -->
 			
 	 		<!-- <BlockDrawer button-color="255 102 0" name="bd.joinin" type="factory">
 	 			<BlockGenusMember>digital_input_for_var</BlockGenusMember>
